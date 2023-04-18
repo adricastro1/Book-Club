@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,18 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <title>On The Same Page</title>
 </head>
+
 <body>
     <header>
         <nav>
-            <div>
-                <ul class="links">
-                    <li><a href="{% url 'home'%}">&nbsp;&nbsp;On the Same Page</a></li>
-                    <li></li>
-                </ul>
+            <a id="nav-title" href="{% url 'home'%}">&nbsp;&nbsp;On the Same Page</a>
+            <div id="nav-links">
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Log Out</a>
+                {% else %}
+                <a href="{% url 'signup' %}">Sign Up</a>
+                <a href="{% url 'login' %}">Log In</a>
+                {% endif %}
             </div>
         </nav>
     </header>
@@ -23,4 +28,5 @@
         {% endblock %}
     </main>
 </body>
+
 </html>

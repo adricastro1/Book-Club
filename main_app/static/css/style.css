@@ -3,12 +3,15 @@
 }
 
 nav {
-    background-color: lightgray;
-    height: 60px;
-}
-
-.links {
-    list-style-type: none;
+    padding: 5px 25px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-}
+    background-color: lightgray;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  #nav-title {
+    
+  }
