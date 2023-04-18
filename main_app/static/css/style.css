@@ -11,3 +11,14 @@ nav {
     font-size: 18px;
     text-decoration: none;
 }
+
+.home-content {
+    margin: 20px;
+    padding: 20px;
+    border: 2px red solid;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+
+}
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="home-content">
+    <section>
+        <h1>Welcome</h1>
+        <section>
+            <h2>Book of the month</h2>
+        </section>
+    </section>
+
+    {% for book in books %}
+    <a href="{% url 'detail' book.id %}">
+        <section class="all-books">
+            <div>
+                <h4>{{ book.title }}</h4>
+                <p> By {{ book.author }}</p>
+            </div>
+        </section>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

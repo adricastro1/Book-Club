@@ -16,6 +16,7 @@
             <a id="nav-title" href="{% url 'home'%}">On the Same Page</a>
             <div id="nav-links">
                 {% if user.is_authenticated %}
+                <a href="{% url 'books_create' %}">Add Book</a>
                 <a href="{% url 'logout' %}">Log Out</a>
                 {% else %}
                 <a href="{% url 'signup' %}">Sign Up</a>
