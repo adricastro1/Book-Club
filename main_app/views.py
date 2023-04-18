@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
-
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .models import Book, Review
 
 
 
 def home(request):
-    return render(request, 'home.html')
+    books = Book.objects.all()
+    return render(request, 'home.html', {'books': books})
 
 def signup(request):
   error_message = ''

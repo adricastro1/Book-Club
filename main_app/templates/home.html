@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Home</h1>
+
+<div>
+    <section>
+        <h1>Welcome</h1>
+        <section>
+            <h2>Book of the month</h2>
+        </section>
+    </section>
+
+    <section>
+        {% for book in books %}
+        <div>
+            <h3>{{ book.title }}</h3>
+            <p> By {{ book.author }}</p>
+            <p>{{ book.numofpages }} pages</p>
+            <p>Genre: {{ book.genre }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
 
 {% endblock %}
