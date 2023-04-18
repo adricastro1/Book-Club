@@ -29,6 +29,16 @@ def book_detail(request, book_id):
   book = Book.objects.get(id=book_id)
   return render(request, 'books/detail.html', {'book': book})
 
-class BookCreate(CreateView):
+class BookCreate(LoginRequiredMixin, CreateView):
   model = Book
   fields = '__all__'
+
+
+class BookUpdate(LoginRequiredMixin, UpdateView):
+  model = Book
+  # Let's disallow the renaming of a cat by excluding the name field!
+  fields = '__all__'
+
+class BookDelete(LoginRequiredMixin, DeleteView):
+  model = Book
+  success_url = '/'
