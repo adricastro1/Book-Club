@@ -21,3 +21,6 @@ class Review(models.Model):
     rating = models.IntegerField(default=0)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Book rating - {self.rating}"

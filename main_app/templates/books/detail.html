@@ -14,5 +14,11 @@
         <a href="{% url 'books_delete' book.id %}">Delete</a>
     </div>
 </div>
-
+<div>
+    <h3>Reviews</h3>
+    {% for review in book.review_set.all %}
+    <p>{{review.rating}}</p>
+    <p>{{review.comment}}</p>
+    {% endfor %}
+</div>
 {% endblock %}

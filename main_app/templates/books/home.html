@@ -9,17 +9,18 @@
             <h2>Book of the month</h2>
         </section>
     </section>
-
-    {% for book in books %}
-    <a href="{% url 'detail' book.id %}">
-        <section class="all-books">
-            <div>
-                <h4>{{ book.title }}</h4>
-                <p> By {{ book.author }}</p>
+    <section>
+        {% for book in books %}
+        <a href="{% url 'detail' book.id %}">
+            <div class="all-books">
+                <div>
+                    <h4>{{ book.title }}</h4>
+                    <p> By {{ book.author }}</p>
+                </div>
             </div>
-        </section>
-    </a>
-    {% endfor %}
+        </a>
+        {% endfor %}
+    </section>
 </div>
 
 {% endblock %}
