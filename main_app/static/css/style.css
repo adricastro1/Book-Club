@@ -3,6 +3,7 @@
 }
 
 nav {
+    height: 60px;
     padding: 5px 25px;
     display: flex;
     justify-content: space-between;
@@ -25,3 +26,6 @@ nav {
 
 }
 
+.reviews  {
+    margin-top: 40px;
+}

@@ -4,7 +4,11 @@
 
 <div class="home-content">
     <section>
-        <h1>Welcome</h1>
+        {% if user.is_authenticated %}
+        <h2>Welcome {{ user.username }}!</h2>
+      {% else %}
+        <h2>Welcome!</h2>
+      {% endif %}
         <section>
             <h2>Book of the month</h2>
         </section>
