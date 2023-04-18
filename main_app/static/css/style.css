@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+}
+
+nav {
+    background-color: lightgray;
+    height: 60px;
+}
+
+.links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
