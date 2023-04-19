@@ -17,7 +17,7 @@
 <div class="reviews">
     <h3>Reviews</h3>
     {% for review in book.review_set.all %}
-    <p>{{review.rating}}</p>
+    <p>{{review.user.username}} | {{review.rating}}</p>
     <p>{{review.comment}}</p>
     {% endfor %}
 </div>

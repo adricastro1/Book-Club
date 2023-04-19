@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Book, Review
 
 
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
