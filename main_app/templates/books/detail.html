@@ -23,7 +23,11 @@
     <input type="submit" class="btn" value="Add Review">
   </form>
     {% for review in book.review_set.all %}
-    <p>{{review.user.username}} | {{review.rating}}</p>
+    <div>
+      <p>{{review.user.username}} | {{review.rating}}</p>
+      <a href="{% url 'review_update' book.id review.id %}">edit</a>
+      <a href="">delete</a>
+    </div>
     <p>{{review.comment}}</p>
     {% endfor %}
 </div>

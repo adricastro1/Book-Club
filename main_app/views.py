@@ -61,3 +61,9 @@ class BookUpdate(LoginRequiredMixin, UpdateView):
 class BookDelete(LoginRequiredMixin, DeleteView):
     model = Book
     success_url = '/'
+
+
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
+    model = Review
+    fields = ['rating', 'comment']
+    success_url = '/'
