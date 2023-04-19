@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
@@ -18,9 +20,10 @@ class Book(models.Model):
 
 class Review(models.Model):
     comment = models.TextField(max_length=500)
-    rating = models.IntegerField(default=0)
+    rating = models.IntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Book rating - {self.rating}"
+    
