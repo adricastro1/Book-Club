@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from .models import Book, Review
 from .forms import ReviewForm
 
@@ -52,18 +54,35 @@ class BookCreate(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
 
-class BookUpdate(LoginRequiredMixin, UpdateView):
+class BookUpdate(UserPassesTestMixin, UpdateView):
     model = Book
-    # Let's disallow the renaming of a cat by excluding the name field!
     fields = '__all__'
 
+    def test_func(self):
+        return self.request.user.is_superuser
 
-class BookDelete(LoginRequiredMixin, DeleteView):
+
+class BookDelete(UserPassesTestMixin, DeleteView):
     model = Book
     success_url = '/'
+
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 class ReviewUpdate(LoginRequiredMixin, UpdateView):
     model = Review
     fields = ['rating', 'comment']
     success_url = '/'
+
+    def get_success_url(self):
+        book_id = self.object.book.id
+        return reverse('detail', kwargs={'book_id': book_id})
+
+class ReviewDelete(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = '/'
+
+    def get_success_url(self):
+        book_id = self.object.book.id
+        return reverse('detail', kwargs={'book_id': book_id})
