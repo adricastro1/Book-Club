@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Book, Review
+from .forms import ReviewForm
 
 
 
@@ -31,7 +32,19 @@ def home(request):
 @login_required
 def book_detail(request, book_id):
     book = Book.objects.get(id=book_id)
-    return render(request, 'books/detail.html', {'book': book})
+    review_form = ReviewForm()
+    return render(request, 'books/detail.html', {
+        'book': book, 'review_form': review_form
+        })
+
+def add_review(request, book_id):
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        new_review = form.save(commit=False)
+        new_review.user_id = request.user.id
+        new_review.book_id = book_id
+        new_review.save()
+    return redirect('detail', book_id=book_id)
 
 
 class BookCreate(LoginRequiredMixin, CreateView):
