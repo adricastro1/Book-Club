@@ -27,8 +27,9 @@ def signup(request):
 
 
 def home(request):
+    book_of_the_month = Book.objects.get(id=2)
     books = Book.objects.all()
-    return render(request, 'books/home.html', {'books': books})
+    return render(request, 'books/home.html', {'books': books, 'book_of_the_month': book_of_the_month})
 
 
 @login_required

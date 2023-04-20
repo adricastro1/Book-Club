@@ -7,6 +7,7 @@
         <p> By {{ book.author }}</p>
         <p>{{ book.numofpages }} pages</p>
         <p>Genre: {{ book.genre }}</p>
+        <p>Rating: {{ book.average_rating|floatformat:1 }}</p>
         <p>Synopsis: {{ book.synopsis }}</p>
     </section>
     {% if user.is_superuser %}

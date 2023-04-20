@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -17,6 +18,9 @@ class Book(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'book_id': self.id})
+    
+    def average_rating(self) -> float:
+        return Review.objects.filter(book=self).aggregate(Avg("rating"))["rating__avg"] or 0
 
 class Review(models.Model):
     comment = models.TextField(max_length=500)
