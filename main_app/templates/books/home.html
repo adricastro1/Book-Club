@@ -19,7 +19,10 @@
                     <p>{{book_of_the_month.average_rating}}</p>
                 </div>
             </div>
-            <p>{{book_of_the_month.synopsis}}</p>
+            <p id="synopsis">{{book_of_the_month.synopsis}}</p>
+            <button type="button" class="btn btn-primary">
+                <a class="link" href="{% url 'detail' book_of_the_month.id %}">View Details</a>
+            </button>
         </section>
     </section>
     <section class="home-right">
