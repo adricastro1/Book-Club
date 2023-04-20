@@ -31,6 +31,9 @@ def home(request):
     books = Book.objects.all()
     return render(request, 'books/home.html', {'books': books, 'book_of_the_month': book_of_the_month})
 
+def myreadinglist(request):
+    return render(request, 'books/myreadinglist.html')
+
 
 @login_required
 def book_detail(request, book_id):

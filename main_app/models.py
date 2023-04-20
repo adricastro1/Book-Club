@@ -31,3 +31,9 @@ class Review(models.Model):
     def __str__(self):
         return f"Book rating - {self.rating}"
     
+class ReadingList(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    books = models.ManyToManyField(Book)
+
+    def __str__(self):
+        return
