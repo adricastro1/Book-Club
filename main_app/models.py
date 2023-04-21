@@ -2,7 +2,6 @@ from django.db import models
 from django.db.models import Avg
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 RATING_CHOICES = (
     (1, '1 star'),

@@ -83,6 +83,11 @@ nav {
     margin-bottom: 30px;
 }
 
+.botm-info >img {
+    height: 150px;
+    margin-right: 25px;
+}
+
 .home-left {
     height: 650px;
     position: -webkit-sticky;
@@ -122,10 +127,6 @@ nav {
     color: white;
 }
 
-#book-cover {
-    height: 150px;
-    margin-right: 25px;
-}
 
 #botm-details {
     text-align: left;
@@ -139,15 +140,15 @@ nav {
 }
 
 .material-symbols-outlined {
-
     color: gold;
+    word-spacing: -25px;
 }
 
 /* DETAILS PAGE */
 
 .details-top {
     display: grid;
-    grid-template-columns: 50% 45%;
+    grid-template-columns: 55% 40%;
     gap: 40px;
     margin-bottom: 40px;
 }
@@ -158,15 +159,22 @@ nav {
     border-radius: 10px;
 }
 
+.cover {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.cover > img {
+    height: 200px;
+    margin-right: 20px;
+    align-items: center;
+}
+
 .add-review {
     padding: 30px;
 }
 
-.review {
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 2px lightgray solid;
-}
 
 #review-form {
     margin-bottom: 30px;
