@@ -175,6 +175,15 @@ nav {
     padding: 30px;
 }
 
+.user {
+    display: flex;
+}
+
+.user > .material-symbols-outlined {
+    color: darkgray;
+    margin-top: 2px;
+    margin-right: 5px;
+}
 
 #review-form {
     margin-bottom: 30px;

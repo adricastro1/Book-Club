@@ -70,9 +70,32 @@
 <h3>Reviews</h3>
 
 {% for review in book.review_set.all %}
-<div class="list-group list-group-flush">
-  <div class="list-group-item">
-    <p>{{review.user.username}} | {{review.rating}} stars</p>
+<div>
+  <div>
+    <div class="user">
+      <p class="material-symbols-outlined">account_circle</p>
+      <p> {{review.user.username}} | 
+        {% if review.rating == 1 %}
+        <span class="material-symbols-outlined">star</span>
+        {% elif review.rating == 1.5 %}
+        <span class="material-symbols-outlined">star star_half</span>
+        {% elif review.rating == 2 %}
+        <span class="material-symbols-outlined">star star</span>
+        {% elif review.rating == 2.5 %}
+        <span class="material-symbols-outlined">star star star_half</span>
+        {% elif review.rating == 3 %}
+        <span class="material-symbols-outlined">star star star</span>
+        {% elif review.rating == 3.5 %}
+        <span class="material-symbols-outlined">star star star star_half</span>
+        {% elif review.rating == 4 %}
+        <span class="material-symbols-outlined">star star star star</span>
+        {% elif review.rating == 4.5 %}
+        <span class="material-symbols-outlined">star star star star star_half</span>
+        {% else %}
+        <span class="material-symbols-outlined">star star star star star</span>
+        {% endif %}
+      </p>
+    </div>
     <p>{{review.comment}}</p>
     {% if user.id == review.user.id%}
     <a href="{% url 'review_update' book.id review.id %}">edit</a>
