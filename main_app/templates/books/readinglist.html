@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+        <h2>{{reading_list.user}}'s Reading List</h2>
+
+        <div>
+            {% for book in book_list %}
+            <h4>{{book.title}}</h4>
+            <p>{{book.author}}</p>
+            {% endfor %}
+        </div>
+
+
+{% endblock %}

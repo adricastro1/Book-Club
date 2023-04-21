@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
-from .models import Book, Review
+from .models import Book, Review, ReadingList
 from .forms import ReviewForm
 
 
@@ -31,8 +31,22 @@ def home(request):
     books = Book.objects.all()
     return render(request, 'books/home.html', {'books': books, 'book_of_the_month': book_of_the_month})
 
-def myreadinglist(request):
-    return render(request, 'books/myreadinglist.html')
+
+@login_required
+def readinglist(request):
+    reading_list = ReadingList.objects.get(user=request.user)
+    book_list = reading_list.books.all()
+    return render(request, 'books/readinglist.html', {'book_list': book_list, 'reading_list':reading_list})
+
+@login_required
+def assoc_book(request, book_id, reading_list):
+    user=request.user
+    reading_list = ReadingList.objects.get(pk=readinglist_id)
+    book = Book.objects.get(id=book_id)
+    print('this is my book', book)
+    reading_list.books.add(book)
+    return redirect('/')
+
 
 
 @login_required

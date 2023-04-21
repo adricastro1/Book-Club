@@ -9,6 +9,7 @@
         {% else %}
         <h3 class="welcome">Welcome!</h3>
         {% endif %}
+
         <section class="botm">
             <h2>Book of the Month</h2>
             <div class="botm-info">
@@ -25,6 +26,8 @@
             </button>
         </section>
     </section>
+
+
     <section class="home-right">
         <h3>All Book Recommendations</h3>
         {% for book in books %}
@@ -36,7 +39,7 @@
                 </div>
                 {% if book.average_rating %}
                 <div>
-                    <p>Rating: {{ book.average_rating|floatformat:1 }}</p>
+                    <p>Rating: {{ book.average_rating|floatformat:1 }} stars</p>
                 </div>
                 {% endif %}
             </div>

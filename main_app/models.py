@@ -4,6 +4,13 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+RATING_CHOICES = (
+    (1, '1 star'),
+    (2, '2 stars'),
+    (3, '3 stars'),
+    (4, '4 stars'),
+    (5, '5 stars'),
+)
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
@@ -24,7 +31,10 @@ class Book(models.Model):
 
 class Review(models.Model):
     comment = models.TextField(max_length=500)
-    rating = models.IntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    rating = models.IntegerField(
+        default=1,
+        choices=RATING_CHOICES,
+    )
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -36,4 +46,4 @@ class ReadingList(models.Model):
     books = models.ManyToManyField(Book)
 
     def __str__(self):
-        return
+        return f"{self.user}'s Reading List"
