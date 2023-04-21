@@ -8,13 +8,33 @@
     <p>{{ book.numofpages }} pages</p>
     <p>Genre: {{ book.genre }}</p>
     {% if book.average_rating %}
-    <p>Rating: {{ book.average_rating|floatformat:1 }} stars</p>
-    {% else %}
-    <p>No reviews yet</p>
+    <div>
+      <p>Rating:</p>
+      {% if book.average_rating == 1 %}
+      <span class="material-symbols-outlined">star</span>
+      {% elif book.average_rating == 1.5 %}
+      <span class="material-symbols-outlined">star star_half</span>
+      {% elif book.average_rating == 2 %}
+      <span class="material-symbols-outlined">star star</span>
+      {% elif book.average_rating == 2.5 %}
+      <span class="material-symbols-outlined">star star star_half</span>
+      {% elif book.average_rating == 3 %}
+      <span class="material-symbols-outlined">star star star</span>
+      {% elif book.average_rating == 3.5 %}
+      <span class="material-symbols-outlined">star star star star_half</span>
+      {% elif book.average_rating == 4 %}
+      <span class="material-symbols-outlined">star star star star</span>
+      {% elif book.average_rating == 4.5 %}
+      <span class="material-symbols-outlined">star star star star star_half</span>
+      {% else %}
+      <span class="material-symbols-outlined">star star star star star</span>
+      {% endif %}
+    </div>
     {% endif %}
     <p>Synopsis: {{ book.synopsis }}</p>
-    <button>Add to Reading List</button>
+    <button class="btn btn-primary">Add to Reading List</button>
     {% if user.is_superuser %}
+    
     <a href="{% url 'books_update' book.id %}">Edit</a>
     <a href="{% url 'books_delete' book.id %}">Delete</a>
     {%endif%}
@@ -36,7 +56,7 @@
 <h3>Reviews</h3>
 
 {% for review in book.review_set.all %}
-<div class="list-group">
+<div class="review">
   <p>{{review.user.username}} | {{review.rating}} stars</p>
   <p>{{review.comment}}</p>
   {% if user.id == review.user.id%}

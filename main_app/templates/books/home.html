@@ -10,14 +10,35 @@
         <h3 class="welcome">Welcome!</h3>
         {% endif %}
 
-        <section class="botm" >
+        <section class="botm">
             <h2>Book of the Month</h2>
             <div class="botm-info">
                 <img id="book-cover" src="./static/css/imgs/book-cover.jpeg" alt="book-cover">
                 <div id="botm-details">
                     <h4>{{book_of_the_month.title}}</h4>
                     <p>By {{book_of_the_month.author}}</p>
-                    <p>{{book_of_the_month.average_rating|floatformat:1}} stars</p>
+                    {% if book_of_the_month.average_rating %}
+                    <p>Rating:</p>
+                    {% if book_of_the_month.average_rating == 1 %}
+                    <span class="material-symbols-outlined">star</span>
+                    {% elif book_of_the_month.average_rating == 1.5 %}
+                    <span class="material-symbols-outlined">star star_half</span>
+                    {% elif book_of_the_month.average_rating == 2 %}
+                    <span class="material-symbols-outlined">star star</span>
+                    {% elif book_of_the_month.average_rating == 2.5 %}
+                    <span class="material-symbols-outlined">star star star_half</span>
+                    {% elif book_of_the_month.average_rating == 3 %}
+                    <span class="material-symbols-outlined">star star star</span>
+                    {% elif book_of_the_month.average_rating == 3.5 %}
+                    <span class="material-symbols-outlined">star star star star_half</span>
+                    {% elif book_of_the_month.average_rating == 4 %}
+                    <span class="material-symbols-outlined">star star star star</span>
+                    {% elif book_of_the_month.average_rating == 4.5 %}
+                    <span class="material-symbols-outlined">star star star star star_half</span>
+                    {% else %}
+                    <span class="material-symbols-outlined">star star star star star</span>
+                    {% endif %}
+                    {% endif %}
                 </div>
             </div>
             <p id="synopsis">{{book_of_the_month.synopsis}}</p>
@@ -39,7 +60,25 @@
                 </div>
                 {% if book.average_rating %}
                 <div>
-                    <p>Rating: {{ book.average_rating|floatformat:1 }} stars</p>
+                    {% if book.average_rating == 1 %}
+                    <span class="material-symbols-outlined">star</span>
+                    {% elif book.average_rating == 1.5 %}
+                    <span class="material-symbols-outlined">star star_half</span>
+                    {% elif book.average_rating == 2 %}
+                    <span class="material-symbols-outlined">star star</span>
+                    {% elif book.average_rating == 2.5 %}
+                    <span class="material-symbols-outlined">star star star_half</span>
+                    {% elif book.average_rating == 3 %}
+                    <span class="material-symbols-outlined">star star star</span>
+                    {% elif book.average_rating == 3.5 %}
+                    <span class="material-symbols-outlined">star star star star_half</span>
+                    {% elif book.average_rating == 4 %}
+                    <span class="material-symbols-outlined">star star star star</span>
+                    {% elif book.average_rating == 4.5 %}
+                    <span class="material-symbols-outlined">star star star star star_half</span>
+                    {% else %}
+                    <span class="material-symbols-outlined">star star star star star</span>
+                    {% endif %}
                 </div>
                 {% endif %}
             </div>

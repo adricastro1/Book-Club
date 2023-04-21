@@ -27,7 +27,9 @@ class Book(models.Model):
         return reverse('detail', kwargs={'book_id': self.id})
     
     def average_rating(self) -> float:
-        return Review.objects.filter(book=self).aggregate(Avg("rating"))["rating__avg"] or 0
+        rating = Review.objects.filter(book=self).aggregate(Avg("rating"))["rating__avg"] or 0
+        return round(rating * 2) / 2
+
 
 class Review(models.Model):
     comment = models.TextField(max_length=500)
