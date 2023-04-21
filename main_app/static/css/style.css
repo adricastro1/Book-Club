@@ -20,9 +20,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightgray;
+    background-color: rgb(227, 225, 225);
     font-size: 20px;
     text-decoration: none;
+}
+
+.material-symbols-outlined {
+    color: rgb(141, 139, 139);
+    margin-top: 3.5px;
+}
+
+.divider {
+    color: rgb(141, 139, 139);
 }
 
 #nav-title {
@@ -34,12 +43,13 @@ nav {
     margin-right: 30px;
     display: flex;
     justify-content: space-evenly;
-    gap: 15px;
+    gap: 10px;
 }
 
 #nav-links, #nav-title {
     color: black;
 }
+
 
 /* HOME PAGE */
 
@@ -59,10 +69,11 @@ nav {
     padding: 30px;
     margin-top: 40px;
     border: 2px lightgray solid;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .botm>h2 {
-    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -85,23 +96,26 @@ nav {
 
 .all-books {
     margin-bottom: 30px;
-    padding: 20px 40px;
+    padding: 30px;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(237, 237, 237);
+    background-color: rgb(248, 248, 248);
     box-shadow: 3px 5px 5px rgb(222, 222, 222);
-    border: 2px rgb(237, 237, 237) solid;
+    border-radius: 10px;
 }
 
 .all-books:hover {
-    background-color: rgb(212, 229, 248);
-    border: 2px rgb(212, 229, 248) solid;
+    background-color: rgb(240, 244, 249);
 }
 
-button {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info > p {
+    margin-bottom: 0;
 }
 
 .link {
@@ -113,6 +127,13 @@ button {
     margin-right: 25px;
 }
 
+#botm-details {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #synopsis {
     margin-bottom: 50px;
 }
@@ -121,23 +142,26 @@ button {
 
 .details-top {
     display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 20px;
+    grid-template-columns: 50% 45%;
+    gap: 40px;
     margin-bottom: 40px;
 }
 
-.book_details {
-    padding: 20px;
+.book-details {
+    padding: 30px;
     border: 2px red solid;
 }
 
-.details-top > form {
-    border: 2px red solid;
+.add-review {
+    padding: 30px;
 }
 
 .review {
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 20px;
     border: 2px gray solid;
 }
 
+#review-form {
+    margin-bottom: 30px;
+}

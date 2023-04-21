@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="details-top">
-  <section class="book_details">
+  <section class="book-details">
     <h4>{{ book.title }}</h4>
     <p> By {{ book.author }}</p>
     <p>{{ book.numofpages }} pages</p>
@@ -13,24 +13,30 @@
     <p>No reviews yet</p>
     {% endif %}
     <p>Synopsis: {{ book.synopsis }}</p>
-
+    <button>Add to Reading List</button>
     {% if user.is_superuser %}
     <a href="{% url 'books_update' book.id %}">Edit</a>
     <a href="{% url 'books_delete' book.id %}">Delete</a>
     {%endif%}
   </section>
-  <form action="{% url 'add_review' book.id %}" method="POST">
-    {% csrf_token %}
-    {{ review_form.as_p }}
-    <input type="submit" class="btn" value="Add Review">
-  </form>
+  <section class="add-review">
+    <h4 id="review-form">Leave a review!</h4>
+    <div class="form-group">
+      <form action="{% url 'add_review' book.id %}" method="POST">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <button type="submit" class="btn btn-light">Add Review</button>
+        <!-- <input type="submit" class="btn" value="Add Review"> -->
+      </form>
+    </div>
+  </section>
 </div>
 
 
 <h3>Reviews</h3>
 
 {% for review in book.review_set.all %}
-<div class="review">
+<div class="list-group">
   <p>{{review.user.username}} | {{review.rating}} stars</p>
   <p>{{review.comment}}</p>
   {% if user.id == review.user.id%}
