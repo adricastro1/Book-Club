@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
-from .models import Book, Review, ReadingList
+from .models import Book, Review, ReadingList, BooksRead
 from .forms import ReviewForm
 
 
@@ -35,8 +35,15 @@ def home(request):
 @login_required
 def readinglist(request):
     reading_list = ReadingList.objects.get(user=request.user)
+    books_read = BooksRead.objects.get(user=request.user)
     book_list = reading_list.books.all()
-    return render(request, 'books/readinglist.html', {'book_list': book_list, 'reading_list_id':reading_list.id, 'reading_list':reading_list})
+    read_list = books_read.books.all()
+    return render(request, 'books/readinglist.html', {
+        'book_list': book_list,
+        'reading_list_id':reading_list.id,
+        'reading_list':reading_list,
+        'read_list':read_list
+        })
 
 @login_required
 def assoc_book(request, book_id, readinglist_id):
@@ -50,7 +57,17 @@ def remove_book(request, book_id, readinglist_id):
     reading_list = ReadingList.objects.get(id=readinglist_id)
     book = Book.objects.get(id=book_id)
     reading_list.books.remove(book)
-    return redirect('/')
+    return redirect('readinglist')
+
+def mark_as_read(request, book_id, readinglist_id):
+    reading_list = ReadingList.objects.get(id=readinglist_id)
+    books_read, created = BooksRead.objects.get_or_create(user=request.user)
+    book = Book.objects.get(id=book_id)
+
+    if book in reading_list.books.all():
+        reading_list.books.remove(book)
+        books_read.books.add(book)
+    return redirect('readinglist')
 
 @login_required
 def book_detail(request, book_id ):

@@ -48,3 +48,12 @@ class ReadingList(models.Model):
 
     def __str__(self):
         return f"{self.user}'s Reading List"
+    
+
+class BooksRead(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    books = models.ManyToManyField(Book)
+
+    def __str__(self):
+        return f"{self.user}'s Books Read"
+    

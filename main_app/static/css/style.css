@@ -201,3 +201,19 @@ nav {
 #review-form {
     margin-bottom: 30px;
 }
+
+/* READING LIST */
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.book-list {
+    width: 500px;
+    border: 2px lightgray solid;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}
