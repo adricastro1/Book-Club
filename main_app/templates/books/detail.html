@@ -11,7 +11,6 @@
       <div>
         <p>{{ book.numofpages }} pages</p>
         <p>Genre: {{ book.genre }}</p>
-        {% if book.average_rating %}
         <div>
           <p>Rating:</p>
           {% if book.average_rating == 1 %}
@@ -30,12 +29,13 @@
           <span class="material-symbols-outlined">star star star star</span>
           {% elif book.average_rating == 4.5 %}
           <span class="material-symbols-outlined">star star star star star_half</span>
-          {% else %}
+          {% elif book.average_rating == 5 %}
           <span class="material-symbols-outlined">star star star star star</span>
+          {% else %}
+          <p>No reviews yet</p>
           {% endif %}
         </div>
       </div>
-      {% endif %}
     </div>
 
     <p>Synopsis: {{ book.synopsis }}</p>
@@ -48,8 +48,8 @@
 
 
     {% if user.is_superuser %}
-    <a href="{% url 'books_update' book.id %}">Edit</a>
-    <a href="{% url 'books_delete' book.id %}">Delete</a>
+    <a class="btn btn-light" href="{% url 'books_update' book.id %}">Edit</a>
+    <a class="btn btn-light" href="{% url 'books_delete' book.id %}">Delete</a>
     {%endif%}
   </section>
 
@@ -67,14 +67,13 @@
 </div>
 
 
-<h3>Reviews</h3>
+<h3 id="reviews-title">Reviews</h3>
 
 {% for review in book.review_set.all %}
-<div>
-  <div>
+  <div class="review">
     <div class="user">
-      <p class="material-symbols-outlined">account_circle</p>
-      <p> {{review.user.username}} | 
+      <p id="user" class="material-symbols-outlined">account_circle</p>
+      <p id="username"> {{review.user.username}} |</p>
         {% if review.rating == 1 %}
         <span class="material-symbols-outlined">star</span>
         {% elif review.rating == 1.5 %}
@@ -94,16 +93,14 @@
         {% else %}
         <span class="material-symbols-outlined">star star star star star</span>
         {% endif %}
-      </p>
     </div>
     <p>{{review.comment}}</p>
     {% if user.id == review.user.id%}
-    <a href="{% url 'review_update' book.id review.id %}">edit</a>
-    <a href="{% url 'review_delete' book.id review.id %}">delete</a>
+    <a class="btn btn-light" href="{% url 'review_update' book.id review.id %}">edit</a>
+    <a class="btn btn-light" href="{% url 'review_delete' book.id review.id %}">delete</a>
     {% endif %}
   </div>
   {% endfor %}
-</div>
 
 
 {% endblock %}

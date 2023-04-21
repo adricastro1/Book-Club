@@ -175,14 +175,27 @@ nav {
     padding: 30px;
 }
 
+#reviews-title {
+    border-bottom: 2px lightgray solid;
+    padding: 20px;
+
+}
+
+.review {
+    padding: 20px;
+    border-bottom: 2px lightgray solid;
+}
 .user {
     display: flex;
 }
 
-.user > .material-symbols-outlined {
+#user {
     color: darkgray;
     margin-top: 2px;
-    margin-right: 5px;
+}
+
+#username {
+    margin: 0 10px;
 }
 
 #review-form {

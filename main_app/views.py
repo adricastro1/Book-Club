@@ -36,7 +36,7 @@ def home(request):
 def readinglist(request):
     reading_list = ReadingList.objects.get(user=request.user)
     book_list = reading_list.books.all()
-    return render(request, 'books/readinglist.html', {'book_list': book_list, 'reading_list':reading_list})
+    return render(request, 'books/readinglist.html', {'book_list': book_list, 'reading_list_id':reading_list.id, 'reading_list':reading_list})
 
 @login_required
 def assoc_book(request, book_id, readinglist_id):
@@ -46,9 +46,15 @@ def assoc_book(request, book_id, readinglist_id):
     return redirect('detail', book_id=book_id)
 
 @login_required
+def remove_book(request, book_id, readinglist_id):
+    reading_list = ReadingList.objects.get(id=readinglist_id)
+    book = Book.objects.get(id=book_id)
+    reading_list.books.remove(book)
+    return redirect('/')
+
+@login_required
 def book_detail(request, book_id ):
     reading_list = ReadingList.objects.get(user_id=request.user)
-    print(reading_list.id)
     book = Book.objects.get(id=book_id)
     review_form = ReviewForm()
     return render(request, 'books/detail.html', {'book': book, 'reading_list_id':reading_list.id, 'review_form': review_form})
@@ -100,3 +106,4 @@ class ReviewDelete(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         book_id = self.object.book.id
         return reverse('detail', kwargs={'book_id': book_id})
+    

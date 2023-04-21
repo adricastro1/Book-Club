@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-        <h2>{{reading_list.user}}'s Reading List</h2>
+<h2>{{reading_list.user}}'s Reading List</h2>
 
-        <div>
-            {% for book in book_list %}
-            <h4>{{book.title}}</h4>
-            <p>{{book.author}}</p>
-            {% endfor %}
-        </div>
+<div>
+    {% for book in book_list %}
+    <h4>{{book.title}}</h4>
+    <p>{{book.author}}</p>
+    <form method="POST" action="{% url 'remove_book' book.id reading_list_id %}">
+        {% csrf_token %}
+        <button type="submit">Remove from Reading List</button>
+    </form>
+
+    {% endfor %}
+</div>
 
 
 {% endblock %}
