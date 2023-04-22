@@ -26,7 +26,7 @@
       <div>
         <p>Genre: {{ book.genre }}</p>
         <p>{{ book.numofpages }} pages</p>
-        <div>
+        <div class="stars">
           <p> Overall Rating:</p>
           {% if book.average_rating == 1 %}
           <span class="material-symbols-outlined">star</span>
@@ -73,34 +73,35 @@
 
 
 <h3 id="reviews-title">Reviews</h3>
-
 {% for review in book.review_set.all %}
 <div class="review">
-  <div class="user">
-    <p id="user" class="material-symbols-outlined">account_circle</p>
-    <p id="username"> {{review.user.username}}  |</p>
-    {% if review.rating == 1 %}
-    <span class="material-symbols-outlined">star</span>
-    {% elif review.rating == 1.5 %}
-    <span class="material-symbols-outlined">star star_half</span>
-    {% elif review.rating == 2 %}
-    <span class="material-symbols-outlined">star star</span>
-    {% elif review.rating == 2.5 %}
-    <span class="material-symbols-outlined">star star star_half</span>
-    {% elif review.rating == 3 %}
-    <span class="material-symbols-outlined">star star star</span>
-    {% elif review.rating == 3.5 %}
-    <span class="material-symbols-outlined">star star star star_half</span>
-    {% elif review.rating == 4 %}
-    <span class="material-symbols-outlined">star star star star</span>
-    {% elif review.rating == 4.5 %}
-    <span class="material-symbols-outlined">star star star star star_half</span>
-    {% else %}
-    <span class="material-symbols-outlined">star star star star star</span>
-    {% endif %}
+  <div>
+    <div class="user">
+      <p id="user" class="material-symbols-outlined">account_circle</p>
+      <p id="username"> {{review.user.username}} |</p>
+      {% if review.rating == 1 %}
+      <span class="material-symbols-outlined">star</span>
+      {% elif review.rating == 1.5 %}
+      <span class="material-symbols-outlined">star star_half</span>
+      {% elif review.rating == 2 %}
+      <span class="material-symbols-outlined">star star</span>
+      {% elif review.rating == 2.5 %}
+      <span class="material-symbols-outlined">star star star_half</span>
+      {% elif review.rating == 3 %}
+      <span class="material-symbols-outlined">star star star</span>
+      {% elif review.rating == 3.5 %}
+      <span class="material-symbols-outlined">star star star star_half</span>
+      {% elif review.rating == 4 %}
+      <span class="material-symbols-outlined">star star star star</span>
+      {% elif review.rating == 4.5 %}
+      <span class="material-symbols-outlined">star star star star star_half</span>
+      {% else %}
+      <span class="material-symbols-outlined">star star star star star</span>
+      {% endif %}
+    </div>
+    <p>{{review.comment}}</p>
   </div>
   <div id="review-info">
-    <p>{{review.comment}}</p>
     {% if user.id == review.user.id%}
     <div id="review-actions">
       <a href="{% url 'review_update' book.id review.id %}">
@@ -115,6 +116,5 @@
   </div>
 </div>
 {% endfor %}
-
 
 {% endblock %}

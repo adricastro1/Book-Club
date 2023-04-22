@@ -1,7 +1,6 @@
 * {
     margin: 0;
     color: black;
-    font-size: 20px;
 }
 
 a:link {
@@ -141,6 +140,7 @@ nav {
 .material-symbols-outlined {
     color: gold;
     word-spacing: -25px;
+    margin-top: 3px;
 }
 
 /* DETAILS PAGE  - TOP */
@@ -166,9 +166,13 @@ nav {
 }
 
 .cover > img {
-    height: 270px;
+    height: 220px;
     margin-right: 20px;
     align-items: center;
+}
+
+.stars > .material-symbols-outlined{
+    font-size: 30px;
 }
 
 #synopsis {
@@ -181,7 +185,7 @@ nav {
 }
 
 #add-book{
-    margin-top: 10px ;
+    margin-top: 20px ;
 }
 
 /* DETAILS PAGE - REVIEWS */
@@ -199,14 +203,17 @@ nav {
 .review {
     padding: 20px;
     border-bottom: 2px lightgray solid;
+    display: flex; 
+    justify-content: space-between;
 }
 .user {
     display: flex;
+    font-size: 20px;
 }
 
 #user, #action {
     color: darkgray;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 #action {
@@ -227,13 +234,19 @@ nav {
     gap: 60px;
 }
 
+#review-actions {
+    width: 4vmin;
+    display: flex;
+   align-items: center;
+}
+
 
 
 /* READING LIST */
 
 .list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-evenly;
     padding: 40px;
 }
 
@@ -265,7 +278,7 @@ nav {
 .books-read > .material-symbols-outlined{
     color: green;
     font-size: 70px;
-    margin-right: 20px;
+    margin:0 20px;
 }
 
 #book-title {
@@ -280,6 +293,12 @@ nav {
 
 #list-buttons {
     display: flex;
+}
+
+#user-list {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
 }
 
 button > #action {

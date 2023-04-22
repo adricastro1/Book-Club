@@ -33,7 +33,7 @@ class Book(models.Model):
 class Review(models.Model):
     comment = models.TextField(max_length=500)
     rating = models.IntegerField(
-        default=1,
+        'Select Rating',
         choices=RATING_CHOICES,
     )
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

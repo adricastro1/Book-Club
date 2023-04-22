@@ -28,7 +28,7 @@ def signup(request):
 
 def home(request):
     book_of_the_month = Book.objects.get(id=2)
-    books = Book.objects.all()
+    books = Book.objects.all().order_by('-id')
     return render(request, 'books/home.html', {'books': books, 'book_of_the_month': book_of_the_month})
 
 
@@ -39,7 +39,7 @@ def readinglist(request):
     except ReadingList.DoesNotExist:
         reading_list = ReadingList.objects.create(user=request.user)
     books_read, _ = BooksRead.objects.get_or_create(user=request.user)
-    book_list = reading_list.books.all()
+    book_list = reading_list.books.all().order_by('-id')
     read_list = books_read.books.all()
     return render(request, 'books/readinglist.html', {
         'book_list': book_list,
