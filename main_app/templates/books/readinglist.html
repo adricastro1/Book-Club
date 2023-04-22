@@ -3,6 +3,7 @@
 <h2>{{reading_list.user}}'s Reading List</h2>
 <div class="list">
     <section >
+        <h3>Reading List</h3>
         {% for book in book_list %}
         <a href="{% url 'detail' book.id %}">
         <div class="book-list">
@@ -25,7 +26,7 @@
     </section>
     
     <section class="books read">
-        <h2>Books Read</h2>
+        <h3>Books Read</h3>
         {% for book in read_list %}
         <a href="{% url 'detail' book.id %}">
             <div>

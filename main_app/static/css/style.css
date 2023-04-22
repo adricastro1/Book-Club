@@ -51,7 +51,7 @@ nav {
 }
 
 
-/* HOME PAGE */
+/* HOME PAGE - BOTM*/
 
 .home-content {
     width: auto;
@@ -95,6 +95,8 @@ nav {
     top: 130px;
 }
 
+/* HOME PAGE - ALL BOOKS */
+
 .home-right>h3 {
     margin-bottom: 30px;
 }
@@ -135,16 +137,12 @@ nav {
     justify-content: center;
 }
 
-#synopsis {
-    margin-bottom: 50px;
-}
-
 .material-symbols-outlined {
     color: gold;
     word-spacing: -25px;
 }
 
-/* DETAILS PAGE */
+/* DETAILS PAGE  - TOP */
 
 .details-top {
     display: grid;
@@ -154,6 +152,7 @@ nav {
 }
 
 .book-details {
+    margin-top: 15px;
     padding: 30px;
     border: 2px lightgray solid;
     border-radius: 10px;
@@ -162,14 +161,29 @@ nav {
 .cover {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
+    margin: 40px;
 }
 
 .cover > img {
-    height: 200px;
+    height: 220px;
     margin-right: 20px;
     align-items: center;
 }
+
+#synopsis {
+    text-align: center;
+}
+
+#book-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#add-book{
+    margin-top: 20px ;
+}
+
+/* DETAILS PAGE - REVIEWS */
 
 .add-review {
     padding: 30px;
@@ -189,9 +203,13 @@ nav {
     display: flex;
 }
 
-#user {
+#user, #action {
     color: darkgray;
     margin-top: 2px;
+}
+
+#action {
+    margin: 10px;
 }
 
 #username {
@@ -201,6 +219,14 @@ nav {
 #review-form {
     margin-bottom: 30px;
 }
+
+#review-info {
+    display: grid;
+    grid-template-columns: 85% 20%;
+    gap: 60px;
+}
+
+
 
 /* READING LIST */
 

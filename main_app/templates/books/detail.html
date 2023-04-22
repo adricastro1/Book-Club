@@ -3,16 +3,31 @@
 
 <div class="details-top">
   <section class="book-details">
-    <h4>{{ book.title }}</h4>
-    <p> By {{ book.author }}</p>
+    <div id="book-header">
+      <div>
+        <h1>{{ book.title }}</h1>
+        <h4> By {{ book.author }}</h4>
+      </div>
+      {% if user.is_superuser %}
+      <div>
+        <a class="btn btn-light" href="{% url 'books_update' book.id %}">
+          <span id="action" class="material-symbols-outlined">edit</span>
+        </a>
+        <a class="btn btn-light" href="{% url 'books_delete' book.id %}">
+          <span id="action" class="material-symbols-outlined">delete</span>
+        </a>
+      </div>
+      {%endif%}
+    </div>
+
     <div class="cover">
       {% load static %}
       <img src="{%static 'main_app/book-stack.png'%}" alt="book-stack">
       <div>
-        <p>{{ book.numofpages }} pages</p>
         <p>Genre: {{ book.genre }}</p>
+        <p>{{ book.numofpages }} pages</p>
         <div>
-          <p>Rating:</p>
+          <p> Overall Rating:</p>
           {% if book.average_rating == 1 %}
           <span class="material-symbols-outlined">star</span>
           {% elif book.average_rating == 1.5 %}
@@ -35,24 +50,14 @@
           <p>No reviews yet</p>
           {% endif %}
         </div>
+        <form id="add-book" action="{% url 'assoc_book' book.id reading_list_id %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Add to Reading List</button>
+        </form>
       </div>
     </div>
-
-    <p>Synopsis: {{ book.synopsis }}</p>
-
-    <form action="{% url 'assoc_book' book.id reading_list_id %}" method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-primary">Add to Reading List</button>
-    </form>
-
-
-
-    {% if user.is_superuser %}
-    <a class="btn btn-light" href="{% url 'books_update' book.id %}">Edit</a>
-    <a class="btn btn-light" href="{% url 'books_delete' book.id %}">Delete</a>
-    {%endif%}
+    <p id="synopsis">{{ book.synopsis }}</p>
   </section>
-
 
   <section class="add-review">
     <h4 id="review-form">Leave a review!</h4>
@@ -70,37 +75,46 @@
 <h3 id="reviews-title">Reviews</h3>
 
 {% for review in book.review_set.all %}
-  <div class="review">
-    <div class="user">
-      <p id="user" class="material-symbols-outlined">account_circle</p>
-      <p id="username"> {{review.user.username}} |</p>
-        {% if review.rating == 1 %}
-        <span class="material-symbols-outlined">star</span>
-        {% elif review.rating == 1.5 %}
-        <span class="material-symbols-outlined">star star_half</span>
-        {% elif review.rating == 2 %}
-        <span class="material-symbols-outlined">star star</span>
-        {% elif review.rating == 2.5 %}
-        <span class="material-symbols-outlined">star star star_half</span>
-        {% elif review.rating == 3 %}
-        <span class="material-symbols-outlined">star star star</span>
-        {% elif review.rating == 3.5 %}
-        <span class="material-symbols-outlined">star star star star_half</span>
-        {% elif review.rating == 4 %}
-        <span class="material-symbols-outlined">star star star star</span>
-        {% elif review.rating == 4.5 %}
-        <span class="material-symbols-outlined">star star star star star_half</span>
-        {% else %}
-        <span class="material-symbols-outlined">star star star star star</span>
-        {% endif %}
-    </div>
-    <p>{{review.comment}}</p>
-    {% if user.id == review.user.id%}
-    <a class="btn btn-light" href="{% url 'review_update' book.id review.id %}">edit</a>
-    <a class="btn btn-light" href="{% url 'review_delete' book.id review.id %}">delete</a>
+<div class="review">
+  <div class="user">
+    <p id="user" class="material-symbols-outlined">account_circle</p>
+    <p id="username"> {{review.user.username}}  |</p>
+    {% if review.rating == 1 %}
+    <span class="material-symbols-outlined">star</span>
+    {% elif review.rating == 1.5 %}
+    <span class="material-symbols-outlined">star star_half</span>
+    {% elif review.rating == 2 %}
+    <span class="material-symbols-outlined">star star</span>
+    {% elif review.rating == 2.5 %}
+    <span class="material-symbols-outlined">star star star_half</span>
+    {% elif review.rating == 3 %}
+    <span class="material-symbols-outlined">star star star</span>
+    {% elif review.rating == 3.5 %}
+    <span class="material-symbols-outlined">star star star star_half</span>
+    {% elif review.rating == 4 %}
+    <span class="material-symbols-outlined">star star star star</span>
+    {% elif review.rating == 4.5 %}
+    <span class="material-symbols-outlined">star star star star star_half</span>
+    {% else %}
+    <span class="material-symbols-outlined">star star star star star</span>
     {% endif %}
   </div>
-  {% endfor %}
+  <div id="review-info">
+    <p>{{review.comment}}</p>
+    {% if user.id == review.user.id%}
+    <div id="review-actions">
+      <a href="{% url 'review_update' book.id review.id %}">
+        <span id="action" class="material-symbols-outlined">edit</span>
+      </a>
+      <a href="{% url 'review_delete' book.id review.id %}">
+        <span id="action" class="material-symbols-outlined">delete</span>
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endfor %}
 
 
 {% endblock %}
