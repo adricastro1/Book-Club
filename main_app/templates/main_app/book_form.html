@@ -2,49 +2,51 @@
 
 {% block content %}
 
-{% if object %}
-<h3 class="title">Edit Book: <span>{{object.title}}</span></h3>
-{% else %}
-<h3 class="title">Got a book to reccomend? Add it here!</h3>
-{% endif %}
-<div id="add-form">
-
-        {% load static %}
-        <img id="bookshelf" src="{%static 'imgs/bookshelf.jpeg'%}" alt="bookshelf">
-
-        <form action="" method="POST">
-            {% csrf_token %}
-            <div id="form-top">
-                <div>
-                    {{form.title.label_tag}}
-                    <div class="form-group">
-                        {{form.title}}
+<div class="form-center">
+    <div class="form-b">
+        {% if object %}
+        <h3 class="title">Edit Book: <span>{{object.title}}</span></h3>
+        {% else %}
+        <h3 class="title">Got a book to reccomend? Add it here!</h3>
+        {% endif %}
+        <div class="add-form">
+                {% load static %}
+                <img id="bookshelf" src="{%static 'imgs/bookshelf.jpeg'%}" alt="bookshelf">
+        
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div id="form-top">
+                        <div>
+                            {{form.title.label_tag}}
+                            <div class="form-group">
+                                {{form.title}}
+                            </div>
+                            {{form.genre.label_tag}}
+                            <div class="form-group">
+                                {{form.genre}}
+                            </div>
+                        </div>
+                        <div>
+                            {{form.author.label_tag}}
+                            <div class="form-group">
+                                {{form.author}}
+                            </div>
+                            {{form.numofpages.label_tag}}
+                            <div class="form-group">
+                                {{form.numofpages}}
+                            </div>
+                        </div>
                     </div>
-                    {{form.genre.label_tag}}
-                    <div class="form-group">
-                        {{form.genre}}
+                    {{form.synopsis.label_tag}}
+                    <div id="synopsis-input" class="form-group">
+                        {{form.synopsis}}
                     </div>
-                </div>
-                <div>
-                    {{form.author.label_tag}}
                     <div class="form-group">
-                        {{form.author}}
+                        <input class="btn btn" type="submit" value="Submit">
                     </div>
-                    {{form.numofpages.label_tag}}
-                    <div class="form-group">
-                        {{form.numofpages}}
-                    </div>
-                </div>
-            </div>
-            {{form.synopsis.label_tag}}
-            <div id="synopsis-input" class="form-group">
-                {{form.synopsis}}
-            </div>
-            <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="Submit">
-            </div>
-        </form>
+                </form>
+        </div>
+    </div>    
 </div>
-
 
 {% endblock %}
