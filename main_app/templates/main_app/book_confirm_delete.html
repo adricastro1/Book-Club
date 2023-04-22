@@ -3,15 +3,17 @@
 {% block content %}
 
 <div class="form-center">
-    <div class="form-c">
+    <div id="delete-form-1" class="form-c">
         <h1 class="form-title">Delete Book</h1>
         
         <h4>Are you sure you want to delete book {{ object.title }}?</h4>
         
         <form action="" method="POST">
             {% csrf_token %}
-            <input type="submit" value="Yes - Delete" class="btn">
-            <a href="{% url 'detail' book.id %}">Cancel</a>
+            <button id="btn-form-2" type="submit" value="Yes - Delete" class="btn">Yes - Delete</button>
+            <button id="btn-form-3" class="btn btn-warning">
+                <a href="{% url 'detail' book.id %}">Cancel</a>
+            </button>
         </form>
     </div>
 </div>

@@ -9,12 +9,12 @@
         <h4> By {{ book.author }}</h4>
       </div>
       {% if user.is_superuser %}
-      <div>
-        <a class="btn btn-light" href="{% url 'books_update' book.id %}">
-          <span id="action" class="material-symbols-outlined">edit</span>
+      <div >
+        <a class="action-btns" href="{% url 'books_update' book.id %}">
+          <span id="action-1" class="material-symbols-outlined">edit</span>
         </a>
-        <a class="btn btn-light" href="{% url 'books_delete' book.id %}">
-          <span id="action" class="material-symbols-outlined">delete</span>
+        <a href="{% url 'books_delete' book.id %}">
+          <span id="action-2" class="material-symbols-outlined">delete</span>
         </a>
       </div>
       {%endif%}
@@ -105,10 +105,10 @@
     {% if user.id == review.user.id%}
     <div id="review-actions">
       <a href="{% url 'review_update' book.id review.id %}">
-        <span id="action" class="material-symbols-outlined">edit</span>
+        <span id="action-3" class="material-symbols-outlined">edit</span>
       </a>
       <a href="{% url 'review_delete' book.id review.id %}">
-        <span id="action" class="material-symbols-outlined">delete</span>
+        <span id="action-4" class="material-symbols-outlined">delete</span>
       </a>
     </div>
     {% endif %}

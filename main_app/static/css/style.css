@@ -11,6 +11,10 @@ a {
     color: black !important;
 }
 
+button > a {
+    color: white !important;
+}
+
 .container {
     padding: 40px;
 }
@@ -188,6 +192,17 @@ nav {
 
 #add-book{
     margin-top: 20px ;
+}
+
+
+#action-1, #action-2, #action-3, #action-4 {
+    color: darkgray;
+    margin: 3px 15px 0 0;
+    font-size: 30px;
+}
+
+#action-1:hover, #action-2:hover, #action-3:hover, #action-4:hover {
+    color: rgb(89, 89, 89);
 }
 
 /* DETAILS PAGE - REVIEWS */
@@ -411,10 +426,11 @@ textarea#id_synopsis {
     margin-top: 30px;
 }
 
-#btn-form, #btn-form-1 {
-    margin-top: 30px;
+#btn-form, #btn-form-1, #btn-form-2, #btn-form-3 {
+    margin: 30px 15px 0 0;
+
 }
 
-#btn-form > a {
-    color: white !important;
+#delete-form, #delete-form-1 {
+    margin-top: 80px;
 }
