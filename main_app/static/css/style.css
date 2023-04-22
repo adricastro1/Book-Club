@@ -318,3 +318,41 @@ button > #action {
 .p {
     margin-bottom: 0;
 }
+
+/* FORMS */
+
+.title {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#add-form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 30px;
+}
+
+#bookshelf {
+    display: block;
+    margin-left: auto;
+    height: 480px;
+}
+
+#form-top {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+textarea#id_synopsis {
+    width: 90%;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #40543C !important;
+    border: #40543C !important;
+}

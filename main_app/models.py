@@ -14,7 +14,7 @@ RATING_CHOICES = (
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    numofpages = models.IntegerField()
+    numofpages = models.IntegerField('Number of Pages')
     genre = models.CharField(max_length=100)
     synopsis = models.TextField(max_length=500)
     
