@@ -10,7 +10,7 @@ a:link {
 
 
 .container {
-    padding: 50px;
+    padding: 40px;
 }
 
 
@@ -106,13 +106,13 @@ nav {
     padding: 30px;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(248, 248, 248);
+    background-color:whitesmoke;
     box-shadow: 3px 5px 5px rgb(222, 222, 222);
     border-radius: 10px;
 }
 
 .all-books:hover {
-    background-color: rgb(240, 244, 249);
+    background-color: rgb(232, 234, 231);
 }
 
 .info {
@@ -326,8 +326,11 @@ button > #action {
     justify-content: center;
 }
 .form-b {
-    padding: 20px;
+    padding-top: 30px;
     border: 2px lightgrey solid;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 3px 5px 5px rgb(222, 222, 222);
 }
 
 .title {
@@ -350,24 +353,32 @@ button > #action {
 }
 
 textarea#id_synopsis {
-    width: 98%;
+    width: 92%;
 }
 
-.add-form{
-    padding:40px 80px;
+.add-form {
+    margin:30px 60px;
     display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 30px;
+    grid-template-columns: 45% 55%;
+    gap: 50px;
+}
+
+.edit-form {
+    padding:30px 60px;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 50px;
 }
 
 #bookshelf {
-    display: block;
     margin-left: auto;
-    height: 480px;
+    height: 470px;
+    border-radius: 10px;
 }
 
 #bookshelf-2{
     height: 400px;
+    border-radius: 10px;
 }
 
 #form-top {
@@ -375,7 +386,28 @@ textarea#id_synopsis {
     grid-template-columns: 50% 50%;
 }
 
-#form-margin {
-    margin-left: auto;
+/* FORMS - SIGNUP + LOG IN */
+
+.form-a, .form-c{
+    padding: 60px;
+    width: 900px;
+    border: 2px lightgrey solid;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 3px 5px 5px rgb(222, 222, 222);
 }
 
+.form-c {
+    width: 400px;
+}
+
+.form-c > h2{
+    margin-bottom: 30px;
+}
+.form-a > h2 {
+    margin-bottom: 30px;
+}
+
+#button-c {
+    margin-top: 30px;
+}
