@@ -3,36 +3,46 @@
 <h2>{{reading_list.user}}'s Reading List</h2>
 <div class="list">
     <section >
-        <h3>Reading List</h3>
+        <h3>Reading List:</h3>
         {% for book in book_list %}
         <a href="{% url 'detail' book.id %}">
         <div class="book-list">
-            <div>
-                <h4>{{book.title}}</h4>
-                <p>{{book.author}}</p>
+            <div id="book-title">
+                <span class="material-symbols-outlined">auto_stories</span>
+                <div>
+                    <h5>{{book.title}}</h5>
+                    <p class="p">{{book.author}}</p>
+                </div>
             </div>
-            <form method="POST" action="{% url 'remove_book' book.id reading_list_id %}">
-                {% csrf_token %}
-                <button class="btn btn-warning" type="submit">Remove</button>
-            </form>
-            <form method="post" action="{% url 'mark_as_read' book.id reading_list_id %}">
-                {% csrf_token %}
-                <input type="hidden" name="book_id" value="{{ book.id }}">
-                <button type="submit">Mark as Read</button>
-              </form>
+            <div id="list-buttons">
+                <form class="btns-p" method="POST" action="{% url 'remove_book' book.id reading_list_id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-light" type="submit">
+                        <span id="action" class="material-symbols-outlined">delete</span>
+                    </button>
+                </form>
+                <form class="btns-p" method="post" action="{% url 'mark_as_read' book.id reading_list_id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="book_id" value="{{ book.id }}">
+                    <button class="btn btn-light" type="submit">
+                        <span id="action" class="material-symbols-outlined">check_box</span>
+                    </button>
+                  </form>
+            </div>
         </div>
         {% endfor %}
         </a>
     </section>
     
-    <section class="books read">
-        <h3>Books Read</h3>
+    <section>
+        <h3>Books Read:</h3>
         {% for book in read_list %}
         <a href="{% url 'detail' book.id %}">
-            <div>
-                <div>
-                    <h4>{{book.title}}</h4>
-                    <p>{{book.author}}</p>
+            <div class="books-read">
+                <span class="material-symbols-outlined">auto_stories</span>
+                <div >
+                    <h5>{{book.title}}</h5>
+                    <p class="p">by {{book.author}}</p>
                 </div>
             </div>
         </a>

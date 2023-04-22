@@ -34,16 +34,20 @@ def home(request):
 
 @login_required
 def readinglist(request):
-    reading_list = ReadingList.objects.get(user=request.user)
-    books_read = BooksRead.objects.get(user=request.user)
+    try:
+        reading_list = ReadingList.objects.get(user=request.user)
+    except ReadingList.DoesNotExist:
+        reading_list = ReadingList.objects.create(user=request.user)
+    books_read, _ = BooksRead.objects.get_or_create(user=request.user)
     book_list = reading_list.books.all()
     read_list = books_read.books.all()
     return render(request, 'books/readinglist.html', {
         'book_list': book_list,
-        'reading_list_id':reading_list.id,
-        'reading_list':reading_list,
-        'read_list':read_list
-        })
+        'reading_list_id': reading_list.id,
+        'reading_list': reading_list,
+        'books_read': books_read,
+        'read_list': read_list
+    })
 
 @login_required
 def assoc_book(request, book_id, readinglist_id):
