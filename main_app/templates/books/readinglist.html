@@ -38,12 +38,20 @@
         <h3>Books Read:</h3>
         {% for book in read_list %}
         <a href="{% url 'detail' book.id %}">
-            <div class="books-read">
-                <span class="material-symbols-outlined">auto_stories</span>
-                <div >
-                    <h5>{{book.title}}</h5>
-                    <p class="p">by {{book.author}}</p>
+            <div class="read-list">
+                <div class="books-read">
+                    <span class="material-symbols-outlined">auto_stories</span>
+                    <div >
+                        <h5>{{book.title}}</h5>
+                        <p class="p">by {{book.author}}</p>
+                    </div>
                 </div>
+                <form class="btns-p" method="POST" action="{% url 'remove_read' book.id books_read_id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-light" type="submit">
+                        <span id="action" class="material-symbols-outlined">delete</span>
+                    </button>
+                </form>
             </div>
         </a>
         {% endfor %}
