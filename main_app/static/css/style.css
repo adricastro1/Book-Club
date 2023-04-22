@@ -5,9 +5,11 @@
 
 a:link {
     text-decoration: none;
-    color: black;
 }
 
+a {
+    color: black !important;
+}
 
 .container {
     padding: 40px;
@@ -401,13 +403,18 @@ textarea#id_synopsis {
     width: 400px;
 }
 
-.form-c > h2{
-    margin-bottom: 30px;
-}
-.form-a > h2 {
+.form-title {
     margin-bottom: 30px;
 }
 
-#button-c {
+.button-c {
     margin-top: 30px;
+}
+
+#btn-form, #btn-form-1 {
+    margin-top: 30px;
+}
+
+#btn-form > a {
+    color: white !important;
 }
