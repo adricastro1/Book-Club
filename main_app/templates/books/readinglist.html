@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{reading_list.user}}'s Reading List</h2>
+<h2 id="user-list">{{reading_list.user}}'s Reading List</h2>
 <div class="list">
     <section >
-        <h3>Reading List:</h3>
+        <h3 class="list-title">Reading List:</h3>
+        {% if book_list %}
         {% for book in book_list %}
         <a href="{% url 'detail' book.id %}">
         <div class="book-list">
@@ -17,38 +18,52 @@
             <div id="list-buttons">
                 <form class="btns-p" method="POST" action="{% url 'remove_book' book.id reading_list_id %}">
                     {% csrf_token %}
-                    <button class="btn btn-light" type="submit">
-                        <span id="action" class="material-symbols-outlined">delete</span>
+                    <button id="list-btn-1"class="btn btn-light" type="submit">
+                        <span id="action-5" class="material-symbols-outlined">delete</span>
                     </button>
                 </form>
                 <form class="btns-p" method="post" action="{% url 'mark_as_read' book.id reading_list_id %}">
                     {% csrf_token %}
                     <input type="hidden" name="book_id" value="{{ book.id }}">
-                    <button class="btn btn-light" type="submit">
-                        <span id="action" class="material-symbols-outlined">check_box</span>
+                    <button id="list-btn" class="btn btn-light" type="submit">
+                        <span id="action-6" class="material-symbols-outlined">check_box</span>
                     </button>
                   </form>
             </div>
         </div>
         {% endfor %}
         </a>
+        {% else %}
+        <h4>No books in reading list</h4>
+        {% endif %}
     </section>
     
     <section>
-        <h3>Books Read:</h3>
+        <h3 class="list-title">Books Read:</h3>
+        {% if read_list %}
         {% for book in read_list %}
         <a href="{% url 'detail' book.id %}">
-            <div class="books-read">
-                <span class="material-symbols-outlined">auto_stories</span>
-                <div >
-                    <h5>{{book.title}}</h5>
-                    <p class="p">by {{book.author}}</p>
+            <div class="read-list">
+                <div class="books-read">
+                    <span class="material-symbols-outlined">auto_stories</span>
+                    <div >
+                        <h5>{{book.title}}</h5>
+                        <p class="p">by {{book.author}}</p>
+                    </div>
                 </div>
+                <form class="btns-p" method="POST" action="{% url 'remove_read' book.id books_read_id %}">
+                    {% csrf_token %}
+                    <button id="list-btn-3" class="btn btn-light" type="submit">
+                        <span id="action-7" class="material-symbols-outlined">delete</span>
+                    </button>
+                </form>
             </div>
         </a>
         {% endfor %}
+        {% else %}
+        <h4>No books in read list</h4>
+        {% endif %}
     </section>
-    
     
 </div>
 

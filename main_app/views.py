@@ -10,7 +10,6 @@ from .models import Book, Review, ReadingList, BooksRead
 from .forms import ReviewForm
 
 
-
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -28,7 +27,7 @@ def signup(request):
 
 def home(request):
     book_of_the_month = Book.objects.get(id=2)
-    books = Book.objects.all()
+    books = Book.objects.all().order_by('-id')
     return render(request, 'books/home.html', {'books': books, 'book_of_the_month': book_of_the_month})
 
 
@@ -39,15 +38,38 @@ def readinglist(request):
     except ReadingList.DoesNotExist:
         reading_list = ReadingList.objects.create(user=request.user)
     books_read, _ = BooksRead.objects.get_or_create(user=request.user)
-    book_list = reading_list.books.all()
+    book_list = reading_list.books.all().order_by('-id')
     read_list = books_read.books.all()
     return render(request, 'books/readinglist.html', {
         'book_list': book_list,
         'reading_list_id': reading_list.id,
         'reading_list': reading_list,
         'books_read': books_read,
+        'books_read_id': books_read.id,
         'read_list': read_list
     })
+
+
+@login_required
+def book_detail(request, book_id):
+    try:
+        reading_list = ReadingList.objects.get(user=request.user)
+    except ReadingList.DoesNotExist:
+        reading_list = ReadingList.objects.create(user=request.user)
+    book = Book.objects.get(id=book_id)
+    review_form = ReviewForm()
+    return render(request, 'books/detail.html', {'book': book, 'reading_list_id': reading_list.id, 'review_form': review_form})
+
+
+def add_review(request, book_id):
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        new_review = form.save(commit=False)
+        new_review.user_id = request.user.id
+        new_review.book_id = book_id
+        new_review.save()
+    return redirect('detail', book_id=book_id)
+
 
 @login_required
 def assoc_book(request, book_id, readinglist_id):
@@ -56,12 +78,14 @@ def assoc_book(request, book_id, readinglist_id):
     reading_list.books.add(book)
     return redirect('detail', book_id=book_id)
 
+
 @login_required
 def remove_book(request, book_id, readinglist_id):
     reading_list = ReadingList.objects.get(id=readinglist_id)
     book = Book.objects.get(id=book_id)
     reading_list.books.remove(book)
     return redirect('readinglist')
+
 
 def mark_as_read(request, book_id, readinglist_id):
     reading_list = ReadingList.objects.get(id=readinglist_id)
@@ -74,20 +98,11 @@ def mark_as_read(request, book_id, readinglist_id):
     return redirect('readinglist')
 
 @login_required
-def book_detail(request, book_id ):
-    reading_list = ReadingList.objects.get(user_id=request.user)
+def remove_read(request, book_id, books_read_id):
+    books_read = BooksRead.objects.get(id=books_read_id)
     book = Book.objects.get(id=book_id)
-    review_form = ReviewForm()
-    return render(request, 'books/detail.html', {'book': book, 'reading_list_id':reading_list.id, 'review_form': review_form})
-
-def add_review(request, book_id):
-    form = ReviewForm(request.POST)
-    if form.is_valid():
-        new_review = form.save(commit=False)
-        new_review.user_id = request.user.id
-        new_review.book_id = book_id
-        new_review.save()
-    return redirect('detail', book_id=book_id)
+    books_read.books.remove(book)
+    return redirect('readinglist')
 
 
 class BookCreate(LoginRequiredMixin, CreateView):
@@ -120,6 +135,7 @@ class ReviewUpdate(LoginRequiredMixin, UpdateView):
         book_id = self.object.book.id
         return reverse('detail', kwargs={'book_id': book_id})
 
+
 class ReviewDelete(LoginRequiredMixin, DeleteView):
     model = Review
     success_url = '/'
@@ -127,4 +143,3 @@ class ReviewDelete(LoginRequiredMixin, DeleteView):
     def get_success_url(self):
         book_id = self.object.book.id
         return reverse('detail', kwargs={'book_id': book_id})
-    

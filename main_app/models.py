@@ -14,7 +14,7 @@ RATING_CHOICES = (
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    numofpages = models.IntegerField()
+    numofpages = models.IntegerField('Number of Pages')
     genre = models.CharField(max_length=100)
     synopsis = models.TextField(max_length=500)
     
@@ -33,7 +33,7 @@ class Book(models.Model):
 class Review(models.Model):
     comment = models.TextField(max_length=500)
     rating = models.IntegerField(
-        default=1,
+        'Select Rating',
         choices=RATING_CHOICES,
     )
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
