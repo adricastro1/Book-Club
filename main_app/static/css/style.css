@@ -62,7 +62,7 @@ nav {
     font-weight: 700;
     word-spacing: 20px;
     color: #d7cbbe;
-    text-shadow: 2px 3px 5px #243223;
+    text-shadow: 2px 3px 5px #1e2d1d;;
 }
 
 #nav-title:hover {
@@ -718,7 +718,7 @@ textarea#id_synopsis {
 
     .book-list,
     .read-list {
-        width: 330px;
+        width: 350px;
         margin: 15px 0;
     }
 
@@ -828,7 +828,7 @@ textarea#id_synopsis {
     #delete-form,
     #delete-form-1,
     #login-form {
-        margin-top: 0px;
+        margin-top: 15px;
         width: 280px;
         padding: 20px;
     }
