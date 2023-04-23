@@ -1,18 +1,13 @@
 * {
     margin: 0;
-    color: black;
+}
+
+body {
+    background-color: #f3efec;
 }
 
 a:link {
     text-decoration: none;
-}
-
-a {
-    color: black !important;
-}
-
-button > a {
-    color: white !important;
 }
 
 .container {
@@ -22,40 +17,58 @@ button > a {
 
 /* NAVBAR */
 nav {
-    height: 80px;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(227, 225, 225);
-    font-size: 20px;
+    background-color: #364b32;
     text-decoration: none;
+    box-shadow: 2px 3px 5px rgb(124, 123, 123);
 }
 
-#nav-links > .material-symbols-outlined {
-    color: rgb(141, 139, 139);
-    margin-top: 3.5px;
+.link, .link:visited  {
+    color: #f3efec;
+    font-size: 24px;
+    text-shadow: 2px 3px 5px #1b281a;
 }
 
-.divider {
-    color: rgb(141, 139, 139);
+.link:hover {
+    color: #d7cbbe;
 }
-
-#nav-title {
-    margin-left: 30px;
-    font-size: 35px;
-}
-
-#nav-links {
+#nav-links{
     margin-right: 30px;
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
 }
 
-#nav-links, #nav-title {
-    color: black;
+#nav-title, #nav-title:visited {
+    font-family: 'Satisfy', cursive;
+    margin-left: 60px;
+    font-size: 45px;
+    font-weight:700;
+    word-spacing: 20px;
+    color: #f3efec;
+    text-shadow: 2px 3px 5px #1b281a;
 }
 
+#nav-title:hover {
+    color: #d7cbbe ;
+}
+
+#nav-links > .material-symbols-outlined {
+    color: #e7dfd5;
+    margin-top: 5px;
+    font-size: 26px;
+    text-shadow: 2px 3px 5px #1b281a;
+}
+
+#nav-links > span {
+    font-size: 24px;
+    color: #f3efec;
+    margin: 0 5px;
+    text-shadow: 2px 3px 5px #1b281a;
+}
 
 /* HOME PAGE - BOTM*/
 
@@ -77,6 +90,7 @@ nav {
     border: 2px lightgray solid;
     border-radius: 10px;
     text-align: center;
+    background-color: #eee9e3;
 }
 
 .botm>h2 {
