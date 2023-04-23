@@ -33,7 +33,10 @@ def home(request):
 
 @login_required
 def readinglist(request):
-    reading_list, created = ReadingList.objects.get_or_create(user=request.user)
+    try:
+        reading_list = ReadingList.objects.get(user=request.user)
+    except ReadingList.DoesNotExist:
+        reading_list = ReadingList.objects.create(user=request.user)
     books_read, created = BooksRead.objects.get_or_create(user=request.user)
     book_list = reading_list.books.all().order_by('-id')
     read_list = books_read.books.all()
@@ -49,7 +52,10 @@ def readinglist(request):
 
 @login_required
 def book_detail(request, book_id):
-    reading_list, created = ReadingList.objects.get_or_create(user=request.user)  
+    try:
+        reading_list = ReadingList.objects.get(user=request.user)
+    except ReadingList.DoesNotExist:
+        reading_list = ReadingList.objects.create(user=request.user)
     book = Book.objects.get(id=book_id)
     review_form = ReviewForm()
     return render(request, 'books/detail.html', {'book': book, 'reading_list_id': reading_list.id, 'review_form': review_form})
