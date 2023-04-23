@@ -785,13 +785,20 @@ textarea#id_synopsis {
     }
 
     #nav-links {
-        margin: 10px 10px 10px 20px;
+        width: 100%;
+        margin: 5px 0;
         gap: 0;
+        display: flex;
+        justify-content: center;
     }
 
     #nav-title, #nav-title:visited {
         font-size: 32px;
-        margin-left: 60px;
+        width: 100%;
+        margin: 0;
+        gap: 0;
+        display: flex;
+        justify-content: center;
     }
 
     #nav-links>span {
@@ -813,7 +820,7 @@ textarea#id_synopsis {
     #delete-form,
     #delete-form-1,
     #login-form {
-        margin-top: 20px;
+        margin-top: -20px;
         width: 250px;
         padding: 20px;
     }
@@ -824,7 +831,7 @@ textarea#id_synopsis {
     }
 
     #login-form {
-        margin-top: 45px;
+        margin-top: -20px;
     }
 
 }
