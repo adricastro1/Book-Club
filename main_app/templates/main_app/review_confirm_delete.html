@@ -3,19 +3,21 @@
 {% block content %}
 
 <div class="form-center">
-    <div class="form-c" id="delete-form">
-        <h3 class="form-title">Delete Review</h3>
-        
-        <h4>Are you sure you want to delete review for {{object.book}}?</h4>
-        
-        <form action="" method="POST">
-            {% csrf_token %}
-            <button id="btn-form-1" type="submit"  value="Yes - Delete" class="btn">Yes - Delete</button>
-                
-            <button id="btn-form" class="btn btn-warning">
-                <a id="link-del-2" href="{% url 'detail' review.book.id %}">Cancel</a>
-            </button>
-        </form>
+    <div>
+        {% load static %}
+        <img class="books-img" src="{%static 'imgs/books.avif'%}" alt="book-stack">
+        <div class="form-c" id="delete-form">
+            <h3 class="form-title">Delete Review</h3>
+            <h4>Are you sure you want to delete review for {{object.book}}?</h4>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <button id="btn-form-1" type="submit"  value="Yes - Delete" class="btn">Yes - Delete</button>
+                    
+                <button id="btn-form" class="btn btn-warning">
+                    <a id="link-del-2" href="{% url 'detail' review.book.id %}">Cancel</a>
+                </button>
+            </form>
+    </div>
     </div>
 </div>
 {% endblock %}

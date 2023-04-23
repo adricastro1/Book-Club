@@ -37,13 +37,13 @@ nav {
 .link:visited {
     font-family: 'Bitter', serif;
     font-size: 22px;
-    color: #f3efec;
+    color: #d7cbbe;
     text-shadow: 2px 2px 6px #1e2d1d;
     word-spacing: 10px;
 }
 
 .link:hover {
-    color: #d7cbbe;
+    color: #f3efec;
 }
 
 #nav-links {
@@ -60,16 +60,16 @@ nav {
     font-size: 45px;
     font-weight: 700;
     word-spacing: 20px;
-    color: #f3efec;
-    text-shadow: 2px 3px 6px #1b281a;
+    color: #d7cbbe;
+    text-shadow: 2px 3px 5px #1b281a;
 }
 
 #nav-title:hover {
-    color: #d7cbbe;
+    color: #f3efec;
 }
 
 #nav-links>.material-symbols-outlined {
-    color: #e7dfd5;
+    color: #d7cbbe;
     margin-top: 3px;
     font-size: 26px;
     text-shadow: 2px 3px 5px #1b281a;
@@ -77,7 +77,7 @@ nav {
 
 #nav-links>span {
     font-size: 24px;
-    color: #f3efec;
+    color: #d7cbbe;
     margin: 0 5px;
     text-shadow: 2px 3px 5px #1b281a;
 }
@@ -484,22 +484,44 @@ textarea#id_synopsis {
 
 .form-a,
 .form-c {
+    margin-top: 50px;
     padding: 60px;
-    width: 900px;
-    border: 2px lightgrey solid;
     border-radius: 10px;
-    background-color: whitesmoke;
-    box-shadow: 3px 5px 5px rgb(222, 222, 222);
+    background-color: rgba(245, 245, 245, 0.935);
+    box-shadow: 3px 5px 5px rgb(162, 161, 161);
+}
+
+.form-a {
+    width: 1200;
 }
 
 .form-c {
     width: 400px;
+    box-shadow: 3px 5px 5px rgb(60, 59, 59);
 }
 
 .form-title {
     margin-bottom: 30px;
 }
 
+.books-img {
+    margin-top: 20px;
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    border-radius: 10px;
+}
+
+#login-form,
+#delete-form,
+#delete-form-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
 
 #btn-form,
 #btn-form-1,
@@ -517,7 +539,7 @@ textarea#id_synopsis {
 
 #delete-form,
 #delete-form-1 {
-    margin-top: 80px;
+    margin-top: 50px;
     width: 500px;
 }
 
