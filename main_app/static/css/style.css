@@ -549,3 +549,40 @@ textarea#id_synopsis {
 #link-del-2 {
     color: white;
 }
+
+@media only screen and (min-width: 375px){
+
+
+    .home-content, .list, .details-top, .add-form, .edit-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-left, nav {
+        position: static;
+        height: auto;
+    }
+    .title {
+        padding: 0 100px;
+    }
+
+    .form-c,.form-b {
+        margin-top: 15px;
+    }
+
+    #nav-title, #nav-links {
+        margin-left: 15px;
+    }
+
+    #bookshelf, #bookshelf-2 {
+        margin: 0;
+        width: 100%;
+        height: 100px;
+    }
+
+}
+
+@media only screen and (min-width: 375px){
+
+    
+}

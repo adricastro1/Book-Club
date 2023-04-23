@@ -11,7 +11,9 @@
         {% endif %}
         <div class="add-form">
                 {% load static %}
-                <img id="bookshelf" src="{%static 'imgs/bookshelf.jpeg'%}" alt="bookshelf">
+                <div id="img-1">
+                    <img id="bookshelf" src="{%static 'imgs/bookshelf.jpeg'%}" alt="bookshelf">
+                </div>
         
                 <form action="" method="POST">
                     {% csrf_token %}
