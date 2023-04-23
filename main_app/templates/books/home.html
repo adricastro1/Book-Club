@@ -43,7 +43,7 @@
                 </div>
             </div>
             <p id="synopsis">{{book_of_the_month.synopsis}}</p>
-            <button type="button" class="btn btn-light">
+            <button type="button" id="botm-btn" class="btn btn-light">
                 <a class="link" href="{% url 'detail' book_of_the_month.id %}">View Details</a>
             </button>
         </section>
@@ -51,7 +51,7 @@
 
 
     <section class="home-right">
-        <h3>Book Recommendations</h3>
+        <h3>Book Recommendations:</h3>
         {% for book in books %}
         <a href="{% url 'detail' book.id %}">
             <div class="all-books">
