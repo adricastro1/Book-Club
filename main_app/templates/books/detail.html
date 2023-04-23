@@ -3,13 +3,13 @@
 
 <div class="details-top">
   <section class="book-details">
+    {% if user.is_superuser %}
     <div id="book-header">
       <div>
         <h2>{{ book.title }}</h2>
         <h4> By {{ book.author }}</h4>
       </div>
-      {% if user.is_superuser %}
-      <div >
+      <div>
         <a class="action-btns" href="{% url 'books_update' book.id %}">
           <span id="action-1" class="material-symbols-outlined">edit</span>
         </a>
@@ -17,8 +17,13 @@
           <span id="action-2" class="material-symbols-outlined">delete</span>
         </a>
       </div>
-      {%endif%}
     </div>
+      {% else %}
+      <div id="user-view">
+        <h2>{{ book.title }}</h2>
+        <h4> By {{ book.author }}</h4>
+      </div>
+      {%endif%}
 
     <div class="cover">
       {% load static %}

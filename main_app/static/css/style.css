@@ -195,13 +195,17 @@ nav {
 }
 
 
-#action-1, #action-2, #action-3, #action-4 {
+#action-1, #action-2, 
+#action-3, #action-4  {
     color: darkgray;
     margin: 3px 15px 0 0;
     font-size: 30px;
 }
 
-#action-1:hover, #action-2:hover, #action-3:hover, #action-4:hover {
+#action-1:hover, #action-2:hover, 
+#action-3:hover, #action-4:hover,
+#action-5:hover, #action-6:hover,
+#action-7:hover {
     color: rgb(89, 89, 89);
 }
 
@@ -228,14 +232,11 @@ nav {
     font-size: 20px;
 }
 
-#user, #action {
+#user {
     color: darkgray;
     margin-top: 3px;
 }
 
-#action {
-    margin: 10px;
-}
 
 #username {
     margin: 0 10px;
@@ -257,7 +258,9 @@ nav {
    align-items: center;
 }
 
-
+#user-view {
+    text-align: center;
+}
 
 /* READING LIST */
 
@@ -298,7 +301,7 @@ nav {
 }
 
 .books-read > .material-symbols-outlined{
-    color: green;
+    color: rgb(98, 143, 98);
     font-size: 70px;
     margin:0 20px;
 }
@@ -308,7 +311,7 @@ nav {
 }
 
 #book-title > .material-symbols-outlined {
-    color: navy;
+    color: rgb(95, 116, 155);
     font-size: 70px;
     margin-right: 20px;
 }
@@ -323,17 +326,29 @@ nav {
     margin-bottom: 30px;
 }
 
-button > #action {
-    margin: 0;
-    font-size: 30px;
-}
 
 .btns-p >button {
     margin: 5px;
 }
 
+#list-btn, #list-btn-1, #list-btn-3 {
+    background-color: rgb(220, 218, 218) !important;
+}
+
+
+#action-5, #action-6, #action-7 {
+    color: rgb(149, 148, 148);
+    margin-top: 3px;
+    font-size: 30px;
+}
+
 .p {
     margin-bottom: 0;
+}
+
+.list-title {
+    width: 500px;
+    margin-bottom: 30px;
 }
 
 /* FORMS */
@@ -422,11 +437,8 @@ textarea#id_synopsis {
     margin-bottom: 30px;
 }
 
-.button-c {
-    margin-top: 30px;
-}
 
-#btn-form, #btn-form-1, #btn-form-2, #btn-form-3 {
+#btn-form, #btn-form-1, #btn-form-2, #btn-form-3, #btn-form-4 {
     margin: 30px 15px 0 0;
 
 }
