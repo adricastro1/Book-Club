@@ -16,7 +16,7 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     numofpages = models.IntegerField('Number of Pages')
     genre = models.CharField(max_length=100)
-    synopsis = models.TextField(max_length=500)
+    synopsis = models.TextField(max_length=800)
     
 
     def __str__(self):
