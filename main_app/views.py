@@ -37,7 +37,7 @@ def readinglist(request):
         reading_list = ReadingList.objects.get(user=request.user)
     except ReadingList.DoesNotExist:
         reading_list = ReadingList.objects.create(user=request.user)
-    books_read, created = BooksRead.objects.get_or_create(user=request.user)
+    books_read, _ = BooksRead.objects.get_or_create(user=request.user)
     book_list = reading_list.books.all().order_by('-id')
     read_list = books_read.books.all()
     return render(request, 'books/readinglist.html', {
