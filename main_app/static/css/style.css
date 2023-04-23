@@ -661,7 +661,7 @@ textarea#id_synopsis {
     .link:link {
         font-size: 16px;
         word-spacing: 0;
-        margin-left: 10px;
+        margin-left: 15px;
     }
 
     .title {
@@ -833,6 +833,9 @@ textarea#id_synopsis {
         padding: 20px;
     }
 
+    #login-form {
+        margin-top: 30px;
+    }
 
 
 }
