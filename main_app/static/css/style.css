@@ -520,7 +520,7 @@ textarea#id_synopsis {
 #delete-form,
 #delete-form-1 {
     position: absolute;
-    top: 45%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -630,7 +630,7 @@ textarea#id_synopsis {
     #delete-form-1,
     #login-form {
         position: absolute;
-        top: 45%;
+        top: 58%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 280px;
@@ -672,7 +672,7 @@ textarea#id_synopsis {
     .link:link {
         font-size: 16px;
         word-spacing: 0;
-        margin-left: 15px;
+        margin-left: 5px;
     }
 
     .title {
@@ -800,7 +800,7 @@ textarea#id_synopsis {
 
     .nav-links {
         width: 100%;
-        /* margin: 5px 0; */
+        margin: 5px 0;
         gap: 0;
         display: flex;
         justify-content: center;
@@ -821,7 +821,8 @@ textarea#id_synopsis {
     }
 
     .nav-links>.material-symbols-outlined {
-        font-size: 14px;
+        visibility: hidden;
+        font-size: 0;
     }
 
     #book-header,
