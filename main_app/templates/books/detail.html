@@ -27,8 +27,8 @@
 
     <div class="cover">
       {% load static %}
-      <img src="{%static 'imgs/book-stack.png'%}" alt="book-stack">
-      <div>
+      <img id="mq-cover" src="{%static 'imgs/book-stack.png'%}" alt="book-stack">
+      <div id="mq-book-info">
         <p>Genre: {{ book.genre }}</p>
         <p>{{ book.numofpages }} pages</p>
         <div class="stars">

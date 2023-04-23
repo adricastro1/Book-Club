@@ -10,7 +10,7 @@
         <div class="book-list">
             <div id="book-title">
                 <span class="material-symbols-outlined">auto_stories</span>
-                <div>
+                <div class="mq-title">
                     <h5>{{book.title}}</h5>
                     <p class="p">{{book.author}}</p>
                 </div>
@@ -39,14 +39,14 @@
     </section>
     
     <section>
-        <h3 class="list-title">Books Read:</h3>
+        <h3 id="read-title" class="list-title">Books Read:</h3>
         {% if read_list %}
         {% for book in read_list %}
         <a href="{% url 'detail' book.id %}">
             <div class="read-list">
                 <div class="books-read">
                     <span class="material-symbols-outlined">auto_stories</span>
-                    <div >
+                    <div class="mq-title">
                         <h5>{{book.title}}</h5>
                         <p class="p">by {{book.author}}</p>
                     </div>

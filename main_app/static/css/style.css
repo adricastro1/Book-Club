@@ -14,7 +14,6 @@ a:link,
 a:visited {
     text-decoration: none;
     color: rgb(58, 58, 58);
-
 }
 
 .container {
@@ -35,7 +34,8 @@ nav {
 }
 
 .link,
-.link:visited {
+.link:visited,
+.link:link {
     font-family: 'Bitter', serif;
     font-size: 22px;
     color: #d7cbbe;
@@ -491,11 +491,13 @@ textarea#id_synopsis {
     padding: 60px;
     border-radius: 10px;
     background-color: rgba(245, 245, 245, 0.935);
-    box-shadow: 3px 5px 5px rgb(162, 161, 161);
+    box-shadow: 3px 5px 5px rgb(83, 82, 82);
 }
 
 .form-a {
     width: 1200;
+    box-shadow: 3px 5px 5px rgb(153, 152, 152);
+
 }
 
 .form-c {
@@ -576,8 +578,41 @@ textarea#id_synopsis {
     }
 
     .form-c,
-    .form-b, #login-form {
+    .form-b,
+    #login-form {
         margin-top: 15px;
+    }
+
+    .cover>img {
+        display: flex;
+        justify-content: center;
+        margin: 15px 0;
+        margin-right: 0;
+    }
+
+    .cover {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .material-symbols-outlined {
+        margin-top: 0;
+        font-size: 16px;
+    }
+
+    .form-center>form {
+        width: 350px;
+    }
+
+    #synopsis {
+        margin-top: 15px;
+    }
+
+
+    #mq-book-info {
+        text-align: center;
     }
 
     #nav-title,
@@ -612,15 +647,17 @@ textarea#id_synopsis {
         flex-direction: column;
     }
 
-    .home-left,
-    nav {
+    .home-left {
         position: static;
         height: auto;
     }
 
     .link,
-    .link:visited {
-        font-size: 18px;
+    .link:visited,
+    .link:link {
+        font-size: 16px;
+        word-spacing: 0;
+        margin-left: 10px;
     }
 
     .title {
@@ -628,26 +665,97 @@ textarea#id_synopsis {
         padding: 0 50px;
     }
 
-    .form-c,
-    .form-b {
-        margin-top: 15px;
+    .form-c {
+        margin-top: 30px;
         width: 350px;
     }
 
+    .form-a,
+    .form-b {
+        margin-top: 0px;
+    }
+
+    .form-b {
+        width: 350px;
+    }
+
+    .add-form {
+        margin-top: 0;
+    }
+
     .botm-info>img {
-        height: 200px;
+        height: 250px;
+        margin-right: 0;
+        border-radius: 10px;
     }
 
     .book-details {
         padding: 10px;
     }
 
-    .books-img{
-        margin-top: 10px;
+    .books-img {
+        margin-top: 0px;
         width: 100%;
         height: 500px;
 
     }
+
+    .title>span {
+        font-size: 20px;
+    }
+
+    .list-title {
+        max-width: 250px;
+    }
+
+    .list {
+        padding: 0;
+    }
+
+    .book-list,
+    .read-list {
+        width: 330px;
+        margin: 15px 0;
+    }
+
+    .mq-title > h5{
+        font-size: 16px;
+    }
+
+    .mq-title > p {
+        font-size: 14px;
+    }
+
+    .welcome {
+        margin-left: 0;
+        text-align: center;
+    }
+
+
+    #read-title {
+        margin-top: 30px;
+    }
+
+    #action-5,
+    #action-6,
+    #action-7 {
+        margin-top: 3px;
+        font-size: 18px;
+    }
+
+    #book-title>.material-symbols-outlined {
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .books-read>.material-symbols-outlined {
+        font-size: 40px;
+        margin: 0 15px  0 0 ;
+        display: flex;
+        align-items: center;
+    }
+
 
     #botm-details {
         margin: 15px 10px;
@@ -662,24 +770,37 @@ textarea#id_synopsis {
         margin-top: 0;
     }
 
-    #nav-title,
-    #nav-links {
-        margin-left: 15px;
+    textarea#id_comment {
+        width: 260px;
     }
 
-    #nav-title {
-        font-size: 30px;
+    textarea#id_synopsis {
+        width: 230px;
+    }
+
+    #center-img,
+    #img-1 {
+        visibility: hidden;
+        height: 0px;
+    }
+
+    #nav-links {
+        margin: 10px 10px 10px 20px;
+        gap: 0;
+    }
+
+    #nav-title, #nav-title:visited {
+        font-size: 32px;
+        margin-left: 60px;
     }
 
     #nav-links>span {
-        font-size: 28px;
+        font-size: 18px;
     }
 
-    #bookshelf,
-    #bookshelf-2 {
-        margin: 0;
-        width: 100%;
-        height: 100px;
+    #nav-links>.material-symbols-outlined {
+        visibility: hidden;
+        font-size: 0;
     }
 
     #book-header,
@@ -690,14 +811,20 @@ textarea#id_synopsis {
     }
 
     #delete-form,
-    #delete-form-1, #login-form {
+    #delete-form-1,
+    #login-form {
         margin-top: 20px;
         width: 250px;
         padding: 20px;
     }
 
+    #delete-form,
+    #delete-form-1 {
+        margin-top: 90px;
+    }
+
     #login-form {
-        margin-top: 0;
+        margin-top: 45px;
     }
 
 }
