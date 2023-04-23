@@ -6,7 +6,7 @@
   <div class="mq-center">
     {% load static %}
     <img class="books-img" src="{%static 'imgs/books.png'%}" alt="book-stack">
-    <div id="login-form" class="form-c">
+    <div id="login-form" class="form-l">
       <h2 class="form-title">Log In</h2>
       <form class="form-group" method="POST" action="{% url 'login' %}">
         {% csrf_token %}
