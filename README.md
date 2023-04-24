@@ -44,7 +44,7 @@ A logged in user can:
 - Add more specific instructions on how to navigate site
 
 ## Resources
--UserPassesTestMixin:
+- UserPassesTestMixin:
 https://docs.djangoproject.com/en/4.2/topics/auth/default/
 
 - Style form:
