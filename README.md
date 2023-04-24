@@ -16,9 +16,12 @@ A logged in user can:
 
 
 ## Screenshots:
-![Home](main_app/static/imgs/home.png)
-![DetailsPage](main_app/static/imgs/book-details.png)
-![ReadingLists](main_app/static/imgs/reading-lists.png)
+<img src="main_app/static/imgs/login.png" alt="Log In" width="50%" height="50%">
+<img src="main_app/static/imgs/home.png" alt="Home" width="50%" height="50%">
+<img src="main_app/static/imgs/add-book.png" alt="Add Book" width="50%" height="50%">
+<img src="main_app/static/imgs/book-details.png" alt="Book Details" width="50%" height="50%">
+<img src="main_app/static/imgs/edit-review.png" alt="Edit Review" width="50%" height="50%">
+<img src="main_app/static/imgs/reading-lists.png" alt="Reading Lists" width="50%" height="50%">
 
 
 
