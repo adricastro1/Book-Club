@@ -16,12 +16,12 @@ A logged in user can:
 
 
 ## Screenshots:
-![LogIn](./mainapp/static/imgs/login.png)
-![Home](./mainapp/static/imgs/home.png)
-![AddBook](./mainapp/static/imgs/add-book.png)
-![DetailsPage](./mainapp/static/imgs/book-details.png)
-![EditReview](./mainapp/static/imgs/edit-review.png)
-![ReadingLists](./mainapp/static/imgs/reading-lists.png)
+![LogIn](mainapp/static/imgs/login.png)
+![Home](mainapp/static/imgs/home.png)
+![AddBook](main_app/static/imgs/add-book.png)
+![DetailsPage](mainapp/static/imgs/book-details.png)
+![EditReview](mainapp/static/imgs/edit-review.png)
+![ReadingLists](mainapp/static/imgs/reading-lists.png)
 
 
 
