@@ -630,7 +630,7 @@ textarea#id_synopsis {
     #delete-form-1,
     #login-form {
         position: absolute;
-        top: 58%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 280px;
