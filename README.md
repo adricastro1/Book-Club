@@ -16,12 +16,12 @@ A logged in user can:
 
 
 ## Screenshots:
-<img src="./mainapp/static/imgs/login.png" alt="Log In" width="50%" height="50%">
-<img src="./mainapp/static/imgs/home.png" alt="Home" width="50%" height="50%">
-<img src="./mainapp/static/imgs/add-book.png" alt="Add Book" width="50%" height="50%">
-<img src="./mainapp/static/imgs/book-details.png" alt="Book Details" width="50%" height="50%">
-<img src="./mainapp/static/imgs/edit-review.png" alt="Edit Review" width="50%" height="50%">
-<img src="./mainapp/static/imgs/reading-lists.png" alt="Reading Lists" width="50%" height="50%">
+<img src="/mainapp/static/imgs/login.png" alt="Log In" width="50%" height="50%">
+<img src="/mainapp/static/imgs/home.png" alt="Home" width="50%" height="50%">
+<img src="/mainapp/static/imgs/add-book.png" alt="Add Book" width="50%" height="50%">
+<img src="/mainapp/static/imgs/book-details.png" alt="Book Details" width="50%" height="50%">
+<img src="/mainapp/static/imgs/edit-review.png" alt="Edit Review" width="50%" height="50%">
+<img src="/mainapp/static/imgs/reading-lists.png" alt="Reading Lists" width="50%" height="50%">
 
 
 ## Technologies Used:
