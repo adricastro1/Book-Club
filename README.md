@@ -16,12 +16,9 @@ A logged in user can:
 
 
 ## Screenshots:
-![LogIn](mainapp/static/imgs/login.png)
-![Home](mainapp/static/imgs/home.png)
-![AddBook](main_app/static/imgs/add-book.png)
-![DetailsPage](mainapp/static/imgs/book-details.png)
-![EditReview](mainapp/static/imgs/edit-review.png)
-![ReadingLists](mainapp/static/imgs/reading-lists.png)
+![Home](main_app/static/imgs/home.png)
+![DetailsPage](main_app/static/imgs/book-details.png)
+![ReadingLists](main_app/static/imgs/reading-lists.png)
 
 
 
