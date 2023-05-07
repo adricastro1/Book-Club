@@ -16,12 +16,9 @@ A logged in user can:
 
 
 ## Screenshots:
-![LogIn](main_app/static/imgs/login.png)
-![Home](main_app/static/imgs/home.png)
-![AddBook](main_app/static/imgs/add-book.png)
-![DetailsPage](main_app/static/imgs/book-details.png)
-![EditReview](main_app/static/imgs/edit-review.png)
-![ReadingLists](main_app/static/imgs/reading-lists.png)
+<img src="main_app/static/imgs/home.png" alt="Home" width="50%" height="50%">
+<img src="main_app/static/imgs/book-details.png" alt="Book Details" width="50%" height="50%">
+<img src="main_app/static/imgs/reading-lists.png" alt="Reading Lists" width="50%" height="50%">
 
 
 
@@ -47,7 +44,7 @@ A logged in user can:
 - Add more specific instructions on how to navigate site
 
 ## Resources
--UserPassesTestMixin:
+- UserPassesTestMixin:
 https://docs.djangoproject.com/en/4.2/topics/auth/default/
 
 - Style form:
