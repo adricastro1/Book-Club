@@ -26,7 +26,7 @@ def signup(request):
 
 
 def home(request):
-    book_of_the_month = Book.objects.get(id=5)
+    book_of_the_month = Book.objects.get(id=3)
     books = Book.objects.all().order_by('-id')
     return render(request, 'books/home.html', {'books': books, 'book_of_the_month': book_of_the_month})
 

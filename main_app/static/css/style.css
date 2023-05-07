@@ -1,8 +1,13 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
 }
 
+
 body {
+    width: 100%;
     background-color: #f3efec;
     font-family: 'Merriweather', serif;
     font-size: 18px;
@@ -36,7 +41,7 @@ a:visited {
 .link:visited,
 .link:link {
     font-family: 'Bitter', serif;
-    font-size: 22px;
+    font-size: 20px;
     color: #d7cbbe;
     text-shadow: 2px 2px 6px #1e2d1d;
     word-spacing: 10px;
@@ -72,16 +77,17 @@ a:visited {
 .nav-links>.material-symbols-outlined {
     color: #d7cbbe;
     margin-top: 3px;
-    font-size: 26px;
+    font-size: 24px;
     text-shadow: 2px 3px 5px #1b281a;
 }
 
 .nav-links>span {
-    font-size: 24px;
+    font-size: 22px;
     color: #d7cbbe;
     margin: 0 5px;
     text-shadow: 2px 3px 5px #1b281a;
 }
+
 
 /* HOME PAGE - BOTM*/
 
@@ -408,8 +414,13 @@ a:visited {
 }
 
 .list-title {
+    font-size: 1.5em;
     width: 500px;
     margin-bottom: 20px;
+}
+
+.list-text {
+    font-size: 1em;
 }
 
 /* FORMS */
@@ -561,6 +572,9 @@ textarea#id_synopsis {
 
 @media only screen and (max-width: 1070px) {
 
+    html {
+        box-sizing: 0;
+    }
 
     .home-content,
     .list,
@@ -570,6 +584,7 @@ textarea#id_synopsis {
     #nav-style {
         display: flex;
         flex-direction: column;
+        padding: 20px;
     }
 
     .home-left {
@@ -609,6 +624,20 @@ textarea#id_synopsis {
         width: 350px;
     }
 
+    .book-list,
+    .read-list {
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .botm-info>img {
+        width: 150px;
+    }
+
+    textarea#id_comment {
+        width: 100%;
+    }
+
     #nav-style {
         height: auto;
     }
@@ -627,6 +656,31 @@ textarea#id_synopsis {
         margin-left: 15px;
     }
 
+    #nav-title {
+        font-size: 32px;
+    }
+
+    .list-title {
+        max-width: 350px;
+        font-size: 20px;
+    }
+
+    .link,
+    .link:visited,
+    .link:link {
+        font-size: 16px;
+        word-spacing: 0;
+        margin-left: 5px;
+    }
+
+    .nav-links>.material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    .nav-links>span {
+        font-size: 18px;
+    }
+
     #center-img,
     #img-1 {
         visibility: hidden;
@@ -643,22 +697,71 @@ textarea#id_synopsis {
 }
 
 @media only screen and (max-width: 655px) {
+
+    * {
+        font-size: 16px;
+    }
+
+    .list,
+    .details-top,
+    .add-form,
+    .edit-form,
+    .cover,
+    .review,
+    #form-top,
     #nav-style {
         display: flex;
         flex-direction: column;
     }
 
-    .nav-links>.material-symbols-outlined {
-        visibility: hidden;
-        font-size: 0;
+    .form-add {
+        width: 90%;
     }
+
+    .nav-links>.material-symbols-outlined {
+        display: none;
+    }
+
+
+
+    #nav-style {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #nav-title {
+        font-size: 28px;
+        margin: 0;
+    }
+
+
     #instructions {
         font-size: 14px;
         width: auto;
     }
+
+    #book-title>.material-symbols-outlined {
+        font-size: 35px;
+        display: flex;
+        align-items: center;
+    }
+
+    .books-read>.material-symbols-outlined {
+        font-size: 35px;
+        margin: 0 15px 0 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 20px;
+        padding: 0 50px;
+    }
+
+
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 430px) {
 
     * {
         font-size: 16px;
@@ -681,6 +784,11 @@ textarea#id_synopsis {
         flex-direction: column;
     }
 
+    .botm-info {
+        display: flex;
+        align-items: center;
+    }
+
     .home-left {
         position: static;
         height: auto;
@@ -690,14 +798,8 @@ textarea#id_synopsis {
     .link:visited,
     .link:link {
         font-size: 16px;
-        word-spacing: 0;
-        margin-left: 5px;
     }
 
-    .title {
-        font-size: 20px;
-        padding: 0 50px;
-    }
 
     .form-l {
         margin-top: 30px;
@@ -710,7 +812,7 @@ textarea#id_synopsis {
     }
 
     .form-add {
-        width: 350px;
+        width: 300px;
     }
 
     .add-form {
@@ -718,9 +820,9 @@ textarea#id_synopsis {
     }
 
     .botm-info>img {
-        height: 250px;
+
+        height: 150px;
         margin-right: 0;
-        border-radius: 10px;
     }
 
     .book-details {
@@ -740,16 +842,11 @@ textarea#id_synopsis {
 
     .list-title {
         max-width: 250px;
+        font-size: 20px;
     }
 
     .list {
         padding: 0;
-    }
-
-    .book-list,
-    .read-list {
-        width: 350px;
-        margin: 15px 0;
     }
 
     .mq-title>h5 {
@@ -770,6 +867,11 @@ textarea#id_synopsis {
         align-items: center;
     }
 
+    .form-center>form {
+        width: 250px;
+    }
+
+
     #read-title {
         margin-top: 30px;
     }
@@ -780,20 +882,6 @@ textarea#id_synopsis {
         margin-top: 3px;
         font-size: 18px;
     }
-
-    #book-title>.material-symbols-outlined {
-        font-size: 40px;
-        display: flex;
-        align-items: center;
-    }
-
-    .books-read>.material-symbols-outlined {
-        font-size: 40px;
-        margin: 0 15px 0 0;
-        display: flex;
-        align-items: center;
-    }
-
 
     #botm-details {
         margin: 15px 10px;
@@ -808,9 +896,6 @@ textarea#id_synopsis {
         margin-top: 0;
     }
 
-    textarea#id_comment {
-        width: 260px;
-    }
 
     textarea#id_synopsis {
         width: 230px;
@@ -818,6 +903,7 @@ textarea#id_synopsis {
 
 
     .nav-links {
+        font-size: 14px;
         width: 100%;
         margin: 5px 0;
         gap: 0;
@@ -825,9 +911,14 @@ textarea#id_synopsis {
         justify-content: center;
     }
 
+    .link,
+    .link:visited,
+    .link:link {
+        font-size: 14px;
+    }
+
     #nav-title,
     #nav-title:visited {
-        font-size: 32px;
         width: 100%;
         margin: 0;
         gap: 0;
@@ -836,12 +927,11 @@ textarea#id_synopsis {
     }
 
     .nav-links>span {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .nav-links>.material-symbols-outlined {
-        visibility: hidden;
-        font-size: 0;
+        display: none;
     }
 
     #book-header,
@@ -859,6 +949,8 @@ textarea#id_synopsis {
         padding: 20px;
     }
 
-
+    #user-list {
+        font-size: 20px;
+    }
 
 }
