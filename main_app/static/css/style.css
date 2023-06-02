@@ -868,6 +868,9 @@ textarea#id_synopsis {
         width: 250px;
     }
 
+    #nav-style {
+        padding: 7px;
+    }
 
     #read-title {
         margin-top: 30px;
@@ -902,7 +905,7 @@ textarea#id_synopsis {
     .nav-links {
         font-size: 14px;
         width: 100%;
-        margin: 5px 0;
+        margin: 0px 0;
         gap: 0;
         display: flex;
         justify-content: center;
