@@ -811,12 +811,9 @@ textarea#id_synopsis {
         margin-top: 0px;
     }
 
-    .form-add {
-        width: 300px;
-    }
-
     .add-form {
-        margin-top: 0;
+        margin: 0;
+        padding: 0;
     }
 
     .botm-info>img {
@@ -898,9 +895,9 @@ textarea#id_synopsis {
 
 
     textarea#id_synopsis {
-        width: 230px;
+        width: 80%;
+        margin: 0 20px;
     }
-
 
     .nav-links {
         font-size: 14px;
@@ -935,7 +932,8 @@ textarea#id_synopsis {
     }
 
     #book-header,
-    #form-top {
+    #form-top,
+    #form-bottom {
         display: flex;
         flex-direction: column;
         text-align: center;
